@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8. Variables and Data Types &#8212; Introduction to GIS Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/variables';</script>
+    <link rel="canonical" href="https://gispro.gishub.org/book/python/variables.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. Python Data Structures" href="data-structures.html" />
+    <link rel="prev" title="7. Using Docker" href="../software/docker.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to GIS Programming - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to GIS Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/overview.html">1. Overview of Software Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/conda.html">2. Introduction to Python Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">3. Setting Up Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/git.html">4. Version Control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/colab.html">5. Using Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/jupyterlab.html">6. Working with JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/docker.html">7. Using Docker</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Programming Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structures.html">9. Python Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string-operations.html">10. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="looping.html">11. Loops and Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions-classes.html">12. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">13. Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy-pandas.html">14. Data Analysis with NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Programming with Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/get-started.html">15. Introduction to Geospatial Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geopandas.html">16. Vector Data Analysis with GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rasterio.html">17. Working with Raster Data Using Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/xarray.html">18. Multi-dimensional Data Analysis with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rioxarray.html">19. Raster Analysis with Rioxarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/leafmap.html">20. Interactive Visualization with Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/whitebox.html">21. Geoprocessing with WhiteboxTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/maplibre.html">22. 3D Mapping with MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geemap.html">23. Cloud Computing with Earth Engine and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/hypercoast.html">24. Hyperspectral Data Visualization with HyperCoast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/duckdb.html">25. High-Performance Geospatial Analytics with DuckDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/gdal.html">26. Geospatial Data Processing with GDAL and OGR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/solara.html">27. Building Interactive Dashboards with Voilà and Solara</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/sedona.html">28. Distributed Computing with Apache Sedona</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/intro-gispro/main?urlpath=tree/book/python/variables.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/intro-gispro/blob/main/book/python/variables.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/edit/main/book/python/variables.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/issues/new?title=Issue%20on%20page%20%2Fbook/python/variables.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/python/variables.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Variables and Data Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">8.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">8.3. Variables in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-assignment">8.3.1. Variable Assignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-variables">8.4. Naming Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-naming-examples-for-geospatial-data">8.4.1. Good Naming Examples for Geospatial Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poor-naming-examples-to-avoid">8.4.2. Poor Naming Examples to Avoid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">8.5. Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">8.6. Escape Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-in-python">8.7. Comments in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-variables-and-data-types">8.8. Working with Variables and Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-string-operations">8.9. Basic String Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-case">8.9.1. Changing Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-text">8.9.2. Replacing Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-string-methods">8.9.3. Other Useful String Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">8.10. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.11. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">8.11.1. Exercise 1: Variable Assignment and Basic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.11.2. Exercise 2: Working with Strings</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-and-data-types">
+<h1><span class="section-number">8. </span>Variables and Data Types<a class="headerlink" href="#variables-and-data-types" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">8.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">8.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+</section>
+<section id="variables-in-python">
+<h2><span class="section-number">8.3. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_points</span> <span class="o">=</span> <span class="mi">120</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">num_points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_points</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="variable-assignment">
+<h3><span class="section-number">8.3.1. </span>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with a number</span>
+<span class="n">location_data</span> <span class="o">=</span> <span class="mf">42.3601</span>
+
+<span class="c1"># Change to text</span>
+<span class="n">location_data</span> <span class="o">=</span> <span class="s2">&quot;Boston&quot;</span>
+
+<span class="c1"># Change to a list of coordinates</span>
+<span class="n">location_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">location_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="naming-variables">
+<h2><span class="section-number">8.4. </span>Naming Variables<a class="headerlink" href="#naming-variables" title="Link to this heading">#</a></h2>
+<section id="good-naming-examples-for-geospatial-data">
+<h3><span class="section-number">8.4.1. </span>Good Naming Examples for Geospatial Data<a class="headerlink" href="#good-naming-examples-for-geospatial-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good variable names for geospatial data</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">42.3601</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.0589</span>
+<span class="n">elevation</span> <span class="o">=</span> <span class="mf">147.2</span>
+<span class="n">city_name</span> <span class="o">=</span> <span class="s2">&quot;Boston&quot;</span>
+<span class="n">population</span> <span class="o">=</span> <span class="mi">685094</span>
+<span class="n">coordinate_system</span> <span class="o">=</span> <span class="s2">&quot;WGS 84&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="poor-naming-examples-to-avoid">
+<h3><span class="section-number">8.4.2. </span>Poor Naming Examples to Avoid<a class="headerlink" href="#poor-naming-examples-to-avoid" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Poor variable names - avoid these</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">42.3601</span>  <span class="c1"># Too generic</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;Boston&quot;</span>  <span class="c1"># Too vague</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mf">25.6</span>  <span class="c1"># Ambiguous - temperature or temporary?</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.36</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.06</span><span class="p">]</span>  <span class="c1"># Single letter variables are hard to understand</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-types">
+<h2><span class="section-number">8.5. </span>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_features</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Represents the number of features in a geospatial dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">=</span> <span class="mf">35.6895</span>  <span class="c1"># Represents the latitude of a point on Earth&#39;s surface</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="mf">139.6917</span>  <span class="c1"># Represents the longitude of a point on Earth&#39;s surface</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinate_system</span> <span class="o">=</span> <span class="s2">&quot;WGS 84&quot;</span>  <span class="c1"># Represents a commonly used coordinate system</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_georeferenced</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Represents whether a dataset is georeferenced or not</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">35.6895</span><span class="p">,</span>
+    <span class="mf">139.6917</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># A list representing latitude and longitude of a point</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mount Fuji&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;height_meters&quot;</span><span class="p">:</span> <span class="mi">3776</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Stratovolcano&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">35.3606</span><span class="p">,</span> <span class="mf">138.7274</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="escape-characters">
+<h2><span class="section-number">8.6. </span>Escape Characters<a class="headerlink" href="#escape-characters" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!</span><span class="se">\n</span><span class="s2">This is a Python script.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the first line.</span><span class="se">\n\t</span><span class="s2">This is the second line. It is indented.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What&#39;s your name?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What&#39;s your name?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="comments-in-python">
+<h2><span class="section-number">8.7. </span>Comments in Python<a class="headerlink" href="#comments-in-python" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment</span>
+<span class="n">num_points</span> <span class="o">=</span> <span class="mi">120</span>  <span class="c1"># This is an inline comment</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-variables-and-data-types">
+<h2><span class="section-number">8.8. </span>Working with Variables and Data Types<a class="headerlink" href="#working-with-variables-and-data-types" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_features</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">num_features</span> <span class="o">+=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated number of features:&quot;</span><span class="p">,</span> <span class="n">num_features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updated number of features: 520
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">35.6895</span>
+<span class="n">latitude_radians</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude in radians:&quot;</span><span class="p">,</span> <span class="n">latitude_radians</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Latitude in radians: 0.6228992833905163
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">]</span>
+<span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">34.0522</span><span class="p">)</span>  <span class="c1"># Adding latitude of Los Angeles</span>
+<span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">118.2437</span><span class="p">)</span>  <span class="c1"># Adding longitude of Los Angeles</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated coordinates:&quot;</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updated coordinates: [35.6895, 139.6917, 34.0522, -118.2437]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mount_fuji_name</span> <span class="o">=</span> <span class="n">feature_attributes</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">mount_fuji_height</span> <span class="o">=</span> <span class="n">feature_attributes</span><span class="p">[</span><span class="s2">&quot;height_meters&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mount_fuji_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">mount_fuji_height</span><span class="si">}</span><span class="s2"> meters high.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mount Fuji is 3776 meters high.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-string-operations">
+<h2><span class="section-number">8.9. </span>Basic String Operations<a class="headerlink" href="#basic-string-operations" title="Link to this heading">#</a></h2>
+<section id="changing-case">
+<h3><span class="section-number">8.9.1. </span>Changing Case<a class="headerlink" href="#changing-case" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city_name</span> <span class="o">=</span> <span class="s2">&quot;San Francisco&quot;</span>
+
+<span class="c1"># Convert to lowercase</span>
+<span class="n">city_lowercase</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lowercase:&quot;</span><span class="p">,</span> <span class="n">city_lowercase</span><span class="p">)</span>
+
+<span class="c1"># Convert to uppercase</span>
+<span class="n">city_uppercase</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uppercase:&quot;</span><span class="p">,</span> <span class="n">city_uppercase</span><span class="p">)</span>
+
+<span class="c1"># Convert to title case (first letter of each word capitalized)</span>
+<span class="n">city_title</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Title case:&quot;</span><span class="p">,</span> <span class="n">city_title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lowercase: san francisco
+Uppercase: SAN FRANCISCO
+Title case: San Francisco
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="replacing-text">
+<h3><span class="section-number">8.9.2. </span>Replacing Text<a class="headerlink" href="#replacing-text" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original_city</span> <span class="o">=</span> <span class="s2">&quot;San Francisco&quot;</span>
+<span class="n">new_city</span> <span class="o">=</span> <span class="n">original_city</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;San&quot;</span><span class="p">,</span> <span class="s2">&quot;Los&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">original_city</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Modified:&quot;</span><span class="p">,</span> <span class="n">new_city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: San Francisco
+Modified: Los Francisco
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-useful-string-methods">
+<h3><span class="section-number">8.9.3. </span>Other Useful String Methods<a class="headerlink" href="#other-useful-string-methods" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">location_data</span> <span class="o">=</span> <span class="s2">&quot;  Mount Everest  &quot;</span>
+
+<span class="c1"># Remove whitespace from beginning and end</span>
+<span class="n">clean_location</span> <span class="o">=</span> <span class="n">location_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned:&quot;</span><span class="p">,</span> <span class="n">clean_location</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaned: Mount Everest
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="key-takeaways">
+<h2><span class="section-number">8.10. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+</section>
+<section id="exercises">
+<h2><span class="section-number">8.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-variable-assignment-and-basic-operations">
+<h3><span class="section-number">8.11.1. </span>Exercise 1: Variable Assignment and Basic Operations<a class="headerlink" href="#exercise-1-variable-assignment-and-basic-operations" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">New_York_latitude</span> <span class="o">=</span> <span class="mf">40.7128</span>
+<span class="n">New_York_longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">74.0060</span>
+<span class="n">New_York_population</span> <span class="o">=</span> <span class="mi">8336817</span>
+<span class="n">New_York_area_sqkm</span> <span class="o">=</span> <span class="mf">783.8</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New York Latitude: (New_York_latitude), New York Longitude: (New_York_longitude)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York Latitude: (New_York_latitude), New York Longitude: (New_York_longitude)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2-working-with-strings">
+<h3><span class="section-number">8.11.2. </span>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/intro-gispro",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../software/docker.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Using Docker</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data-structures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Python Data Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">8.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-python">8.3. Variables in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-assignment">8.3.1. Variable Assignment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-variables">8.4. Naming Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-naming-examples-for-geospatial-data">8.4.1. Good Naming Examples for Geospatial Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poor-naming-examples-to-avoid">8.4.2. Poor Naming Examples to Avoid</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">8.5. Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">8.6. Escape Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comments-in-python">8.7. Comments in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-variables-and-data-types">8.8. Working with Variables and Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-string-operations">8.9. Basic String Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-case">8.9.1. Changing Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-text">8.9.2. Replacing Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-string-methods">8.9.3. Other Useful String Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">8.10. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.11. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">8.11.1. Exercise 1: Variable Assignment and Basic Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.11.2. Exercise 2: Working with Strings</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

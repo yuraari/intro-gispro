@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Python Data Structures &#8212; Introduction to GIS Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/data-structures';</script>
+    <link rel="canonical" href="https://gispro.gishub.org/book/python/data-structures.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. String Operations" href="string-operations.html" />
+    <link rel="prev" title="8. Variables and Data Types" href="variables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to GIS Programming - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to GIS Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/overview.html">1. Overview of Software Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/conda.html">2. Introduction to Python Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">3. Setting Up Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/git.html">4. Version Control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/colab.html">5. Using Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/jupyterlab.html">6. Working with JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/docker.html">7. Using Docker</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Programming Fundamentals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="variables.html">8. Variables and Data Types</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Python Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="string-operations.html">10. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="looping.html">11. Loops and Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions-classes.html">12. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">13. Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy-pandas.html">14. Data Analysis with NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Programming with Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/get-started.html">15. Introduction to Geospatial Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geopandas.html">16. Vector Data Analysis with GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rasterio.html">17. Working with Raster Data Using Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/xarray.html">18. Multi-dimensional Data Analysis with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/rioxarray.html">19. Raster Analysis with Rioxarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/leafmap.html">20. Interactive Visualization with Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/whitebox.html">21. Geoprocessing with WhiteboxTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/maplibre.html">22. 3D Mapping with MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/geemap.html">23. Cloud Computing with Earth Engine and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/hypercoast.html">24. Hyperspectral Data Visualization with HyperCoast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/duckdb.html">25. High-Performance Geospatial Analytics with DuckDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/gdal.html">26. Geospatial Data Processing with GDAL and OGR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/solara.html">27. Building Interactive Dashboards with Voilà and Solara</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geospatial/sedona.html">28. Distributed Computing with Apache Sedona</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/intro-gispro/main?urlpath=tree/book/python/data-structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/intro-gispro/blob/main/book/python/data-structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/edit/main/book/python/data-structures.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/issues/new?title=Issue%20on%20page%20%2Fbook/python/data-structures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/python/data-structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python Data Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">9.3. Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-tuples">9.3.1. Creating and Using Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-tuple-elements">9.3.2. Accessing Tuple Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-unpacking">9.3.3. Tuple Unpacking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-coordinate-points">9.3.4. Multiple Coordinate Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">9.4. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-lists">9.4.1. Creating Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-elements-to-lists">9.4.2. Adding Elements to Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-list-elements">9.4.3. Accessing List Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slicing">9.4.4. List Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-list-operations">9.4.5. Useful List Operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">9.5. Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-sets">9.5.1. Creating Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-elements-to-sets">9.5.2. Adding Elements to Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-set-operations">9.5.3. Practical Set Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-set-membership">9.5.4. Checking Set Membership</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries">9.6.1. Creating Dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-dictionary-values">9.6.2. Accessing Dictionary Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#safe-access-with-get">9.6.3. Safe Access with get()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-updating-values">9.6.4. Adding and Updating Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-geographic-feature-collections">9.6.5. Working with Geographic Feature Collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-methods-for-data-exploration">9.6.6. Dictionary Methods for Data Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-gps-waypoint-management">9.6.7. Practical Example: GPS Waypoint Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure-selection-guide">9.7. Data Structure Selection Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-each-data-structure">9.7.1. When to Use Each Data Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">9.8. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.9. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-using-lists">9.9.1. Exercise 1: Using Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-using-tuples">9.9.2. Exercise 2: Using Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-working-with-sets">9.9.3. Exercise 3: Working with Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-working-with-dictionaries">9.9.4. Exercise 4: Working with Dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-nested-data-structures">9.9.5. Exercise 5: Nested Data Structures</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-data-structures">
+<h1><span class="section-number">9. </span>Python Data Structures<a class="headerlink" href="#python-data-structures" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">9.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">9.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+</section>
+<section id="tuples">
+<h2><span class="section-number">9.3. </span>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h2>
+<section id="creating-and-using-tuples">
+<h3><span class="section-number">9.3.1. </span>Creating and Using Tuples<a class="headerlink" href="#creating-and-using-tuples" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tokyo_point</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">35.6895</span><span class="p">,</span>
+    <span class="mf">139.6917</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># Tuple representing Tokyo&#39;s coordinates (latitude, longitude)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokyo coordinates: </span><span class="si">{</span><span class="n">tokyo_point</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-tuple-elements">
+<h3><span class="section-number">9.3.2. </span>Accessing Tuple Elements<a class="headerlink" href="#accessing-tuple-elements" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">=</span> <span class="n">tokyo_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="n">tokyo_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude: </span><span class="si">{</span><span class="n">latitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude: </span><span class="si">{</span><span class="n">longitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tuple-unpacking">
+<h3><span class="section-number">9.3.3. </span>Tuple Unpacking<a class="headerlink" href="#tuple-unpacking" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">tokyo_point</span>  <span class="c1"># Unpacking the tuple into two variables</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokyo is located at </span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">°N, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">°E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-coordinate-points">
+<h3><span class="section-number">9.3.4. </span>Multiple Coordinate Points<a class="headerlink" href="#multiple-coordinate-points" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different geographic locations as tuples</span>
+<span class="n">new_york</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">)</span>
+<span class="n">london</span> <span class="o">=</span> <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">)</span>
+<span class="n">sydney</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New York: </span><span class="si">{</span><span class="n">new_york</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;London: </span><span class="si">{</span><span class="n">london</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sydney: </span><span class="si">{</span><span class="n">sydney</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lists">
+<h2><span class="section-number">9.4. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<section id="creating-lists">
+<h3><span class="section-number">9.4.1. </span>Creating Lists<a class="headerlink" href="#creating-lists" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of coordinate tuples representing a travel route</span>
+<span class="n">route</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">),</span>  <span class="c1"># Tokyo</span>
+    <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span>  <span class="c1"># Los Angeles</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Travel route:&quot;</span><span class="p">,</span> <span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of elevation measurements (in meters)</span>
+<span class="n">elevations</span> <span class="o">=</span> <span class="p">[</span><span class="mf">120.5</span><span class="p">,</span> <span class="mf">135.2</span><span class="p">,</span> <span class="mf">150.8</span><span class="p">,</span> <span class="mf">168.3</span><span class="p">,</span> <span class="mf">185.7</span><span class="p">,</span> <span class="mf">203.1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elevation profile:&quot;</span><span class="p">,</span> <span class="n">elevations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of city names</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;Paris&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cities to visit:&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-elements-to-lists">
+<h3><span class="section-number">9.4.2. </span>Adding Elements to Lists<a class="headerlink" href="#adding-elements-to-lists" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add Paris to our travel route</span>
+<span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mf">48.8566</span><span class="p">,</span> <span class="mf">2.3522</span><span class="p">))</span>  <span class="c1"># Adding Paris coordinates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated route:&quot;</span><span class="p">,</span> <span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new elevation measurement</span>
+<span class="n">elevations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">221.4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated elevations:&quot;</span><span class="p">,</span> <span class="n">elevations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-list-elements">
+<h3><span class="section-number">9.4.3. </span>Accessing List Elements<a class="headerlink" href="#accessing-list-elements" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the first city in our route</span>
+<span class="n">first_stop</span> <span class="o">=</span> <span class="n">route</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First stop: </span><span class="si">{</span><span class="n">first_stop</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access the last city using negative indexing</span>
+<span class="n">last_stop</span> <span class="o">=</span> <span class="n">route</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Last stop: </span><span class="si">{</span><span class="n">last_stop</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="list-slicing">
+<h3><span class="section-number">9.4.4. </span>List Slicing<a class="headerlink" href="#list-slicing" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the first two stops of our route</span>
+<span class="n">first_two_stops</span> <span class="o">=</span> <span class="n">route</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First two stops:&quot;</span><span class="p">,</span> <span class="n">first_two_stops</span><span class="p">)</span>
+
+<span class="c1"># Get the middle portion of elevation data</span>
+<span class="n">middle_elevations</span> <span class="o">=</span> <span class="n">elevations</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Middle elevation readings:&quot;</span><span class="p">,</span> <span class="n">middle_elevations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="useful-list-operations">
+<h3><span class="section-number">9.4.5. </span>Useful List Operations<a class="headerlink" href="#useful-list-operations" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the number of waypoints in our route</span>
+<span class="n">num_waypoints</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of waypoints: </span><span class="si">{</span><span class="n">num_waypoints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Find the highest elevation</span>
+<span class="n">max_elevation</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">elevations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Highest elevation: </span><span class="si">{</span><span class="n">max_elevation</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
+
+<span class="c1"># Calculate average elevation</span>
+<span class="n">avg_elevation</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">elevations</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">elevations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average elevation: </span><span class="si">{</span><span class="n">avg_elevation</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sets">
+<h2><span class="section-number">9.5. </span>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h2>
+<section id="creating-sets">
+<h3><span class="section-number">9.5.1. </span>Creating Sets<a class="headerlink" href="#creating-sets" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a set of geographic regions</span>
+<span class="n">regions_visited</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;North America&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span> <span class="s2">&quot;Asia&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Regions visited:&quot;</span><span class="p">,</span> <span class="n">regions_visited</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a set from a list (automatically removes duplicates)</span>
+<span class="n">country_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;US&quot;</span><span class="p">,</span> <span class="s2">&quot;CA&quot;</span><span class="p">,</span> <span class="s2">&quot;MX&quot;</span><span class="p">,</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span> <span class="s2">&quot;CA&quot;</span><span class="p">]</span>  <span class="c1"># Notice the duplicates</span>
+<span class="n">unique_codes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">country_codes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original list:&quot;</span><span class="p">,</span> <span class="n">country_codes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unique country codes:&quot;</span><span class="p">,</span> <span class="n">unique_codes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a set of coordinate system codes</span>
+<span class="n">crs_codes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:3857&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:32633&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coordinate reference systems:&quot;</span><span class="p">,</span> <span class="n">crs_codes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-elements-to-sets">
+<h3><span class="section-number">9.5.2. </span>Adding Elements to Sets<a class="headerlink" href="#adding-elements-to-sets" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new region</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original set:&quot;</span><span class="p">,</span> <span class="n">regions_visited</span><span class="p">)</span>
+<span class="n">regions_visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Africa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After adding Africa:&quot;</span><span class="p">,</span> <span class="n">regions_visited</span><span class="p">)</span>
+
+<span class="c1"># Try to add a duplicate region</span>
+<span class="n">regions_visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Europe&quot;</span><span class="p">)</span>  <span class="c1"># This won&#39;t change the set</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After trying to add Europe again:&quot;</span><span class="p">,</span> <span class="n">regions_visited</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-set-operations">
+<h3><span class="section-number">9.5.3. </span>Practical Set Operations<a class="headerlink" href="#practical-set-operations" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two different survey areas with their observed species</span>
+<span class="n">area_a_species</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;oak&quot;</span><span class="p">,</span> <span class="s2">&quot;pine&quot;</span><span class="p">,</span> <span class="s2">&quot;maple&quot;</span><span class="p">,</span> <span class="s2">&quot;birch&quot;</span><span class="p">}</span>
+<span class="n">area_b_species</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;pine&quot;</span><span class="p">,</span> <span class="s2">&quot;birch&quot;</span><span class="p">,</span> <span class="s2">&quot;cedar&quot;</span><span class="p">,</span> <span class="s2">&quot;fir&quot;</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Species in Area A:&quot;</span><span class="p">,</span> <span class="n">area_a_species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Species in Area B:&quot;</span><span class="p">,</span> <span class="n">area_b_species</span><span class="p">)</span>
+
+<span class="c1"># Find species common to both areas</span>
+<span class="n">common_species</span> <span class="o">=</span> <span class="n">area_a_species</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">area_b_species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Species found in both areas:&quot;</span><span class="p">,</span> <span class="n">common_species</span><span class="p">)</span>
+
+<span class="c1"># Find species unique to Area A</span>
+<span class="n">unique_to_a</span> <span class="o">=</span> <span class="n">area_a_species</span> <span class="o">-</span> <span class="n">area_b_species</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Species only in Area A:&quot;</span><span class="p">,</span> <span class="n">unique_to_a</span><span class="p">)</span>
+
+<span class="c1"># Find all species across both areas</span>
+<span class="n">all_species</span> <span class="o">=</span> <span class="n">area_a_species</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">area_b_species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All species found:&quot;</span><span class="p">,</span> <span class="n">all_species</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="checking-set-membership">
+<h3><span class="section-number">9.5.4. </span>Checking Set Membership<a class="headerlink" href="#checking-set-membership" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if we&#39;ve visited a particular region</span>
+<span class="k">if</span> <span class="s2">&quot;Asia&quot;</span> <span class="ow">in</span> <span class="n">regions_visited</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have visited Asia&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s2">&quot;Antarctica&quot;</span> <span class="ow">in</span> <span class="n">regions_visited</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have visited Antarctica&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antarctica not yet visited&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dictionaries">
+<h2><span class="section-number">9.6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<section id="creating-dictionaries">
+<h3><span class="section-number">9.6.1. </span>Creating Dictionaries<a class="headerlink" href="#creating-dictionaries" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary storing attributes of a city</span>
+<span class="n">tokyo_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="mi">13929286</span><span class="p">,</span>
+    <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">),</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;Japan&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;established&quot;</span><span class="p">:</span> <span class="mi">1603</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tokyo information:&quot;</span><span class="p">,</span> <span class="n">tokyo_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary for a geographic survey point</span>
+<span class="n">survey_point</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;point_id&quot;</span><span class="p">:</span> <span class="s2">&quot;SP001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mf">40.7589</span><span class="p">,</span>
+    <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">73.9851</span><span class="p">,</span>
+    <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mf">87.3</span><span class="p">,</span>
+    <span class="s2">&quot;land_cover&quot;</span><span class="p">:</span> <span class="s2">&quot;urban&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date_surveyed&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-06-15&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survey point data:&quot;</span><span class="p">,</span> <span class="n">survey_point</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-dictionary-values">
+<h3><span class="section-number">9.6.2. </span>Accessing Dictionary Values<a class="headerlink" href="#accessing-dictionary-values" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access specific information about Tokyo</span>
+<span class="n">city_name</span> <span class="o">=</span> <span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">city_population</span> <span class="o">=</span> <span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span>
+<span class="n">city_coords</span> <span class="o">=</span> <span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;City: </span><span class="si">{</span><span class="n">city_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Population: </span><span class="si">{</span><span class="n">city_population</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinates: </span><span class="si">{</span><span class="n">city_coords</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="safe-access-with-get">
+<h3><span class="section-number">9.6.3. </span>Safe Access with get()<a class="headerlink" href="#safe-access-with-get" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Safe access to dictionary values</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">tokyo_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;area_km2&quot;</span><span class="p">,</span> <span class="s2">&quot;Not specified&quot;</span><span class="p">)</span>
+<span class="n">timezone</span> <span class="o">=</span> <span class="n">tokyo_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timezone&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timezone: </span><span class="si">{</span><span class="n">timezone</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-and-updating-values">
+<h3><span class="section-number">9.6.4. </span>Adding and Updating Values<a class="headerlink" href="#adding-and-updating-values" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new information to our Tokyo dictionary</span>
+<span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;area_km2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2191</span>
+<span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;timezone&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;JST&quot;</span>
+<span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14000000</span>  <span class="c1"># Update population</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated Tokyo info:&quot;</span><span class="p">,</span> <span class="n">tokyo_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-geographic-feature-collections">
+<h3><span class="section-number">9.6.5. </span>Working with Geographic Feature Collections<a class="headerlink" href="#working-with-geographic-feature-collections" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collection of world capitals</span>
+<span class="n">world_capitals</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Japan&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;capital&quot;</span><span class="p">:</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">),</span>
+        <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="mi">13929286</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;France&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;capital&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">48.8566</span><span class="p">,</span> <span class="mf">2.3522</span><span class="p">),</span>
+        <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="mi">2161000</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;UK&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;capital&quot;</span><span class="p">:</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>
+        <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="mi">8982000</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># Access information about France&#39;s capital</span>
+<span class="n">france_info</span> <span class="o">=</span> <span class="n">world_capitals</span><span class="p">[</span><span class="s2">&quot;France&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;France&#39;s capital: </span><span class="si">{</span><span class="n">france_info</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Population: </span><span class="si">{</span><span class="n">france_info</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionary-methods-for-data-exploration">
+<h3><span class="section-number">9.6.6. </span>Dictionary Methods for Data Exploration<a class="headerlink" href="#dictionary-methods-for-data-exploration" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Explore the structure of our Tokyo dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keys in tokyo_info:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">tokyo_info</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Values in tokyo_info:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">tokyo_info</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+<span class="c1"># Check if a key exists</span>
+<span class="k">if</span> <span class="s2">&quot;coordinates&quot;</span> <span class="ow">in</span> <span class="n">tokyo_info</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coordinate information is available&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get all countries in our capitals dictionary</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">world_capitals</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Countries in our database:&quot;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-example-gps-waypoint-management">
+<h3><span class="section-number">9.6.7. </span>Practical Example: GPS Waypoint Management<a class="headerlink" href="#practical-example-gps-waypoint-management" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># GPS waypoint with comprehensive metadata</span>
+<span class="n">waypoint</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WP001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Trail Start&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mf">45.3311</span><span class="p">,</span>
+    <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">121.7113</span><span class="p">,</span>
+    <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Beginning of Pacific Crest Trail section&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;waypoint_type&quot;</span><span class="p">:</span> <span class="s2">&quot;trailhead&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;facilities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;parking&quot;</span><span class="p">,</span> <span class="s2">&quot;restrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;water&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;difficulty&quot;</span><span class="p">:</span> <span class="s2">&quot;easy&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Waypoint: </span><span class="si">{</span><span class="n">waypoint</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Location: </span><span class="si">{</span><span class="n">waypoint</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">waypoint</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elevation: </span><span class="si">{</span><span class="n">waypoint</span><span class="p">[</span><span class="s1">&#39;elevation&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> meters&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available facilities: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">waypoint</span><span class="p">[</span><span class="s1">&#39;facilities&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-structure-selection-guide">
+<h2><span class="section-number">9.7. </span>Data Structure Selection Guide<a class="headerlink" href="#data-structure-selection-guide" title="Link to this heading">#</a></h2>
+<section id="when-to-use-each-data-structure">
+<h3><span class="section-number">9.7.1. </span>When to Use Each Data Structure<a class="headerlink" href="#when-to-use-each-data-structure" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="key-takeaways">
+<h2><span class="section-number">9.8. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+</section>
+<section id="exercises">
+<h2><span class="section-number">9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-using-lists">
+<h3><span class="section-number">9.9.1. </span>Exercise 1: Using Lists<a class="headerlink" href="#exercise-1-using-lists" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-2-using-tuples">
+<h3><span class="section-number">9.9.2. </span>Exercise 2: Using Tuples<a class="headerlink" href="#exercise-2-using-tuples" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-3-working-with-sets">
+<h3><span class="section-number">9.9.3. </span>Exercise 3: Working with Sets<a class="headerlink" href="#exercise-3-working-with-sets" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-4-working-with-dictionaries">
+<h3><span class="section-number">9.9.4. </span>Exercise 4: Working with Dictionaries<a class="headerlink" href="#exercise-4-working-with-dictionaries" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-5-nested-data-structures">
+<h3><span class="section-number">9.9.5. </span>Exercise 5: Nested Data Structures<a class="headerlink" href="#exercise-5-nested-data-structures" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/intro-gispro",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Variables and Data Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="string-operations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>String Operations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">9.3. Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-tuples">9.3.1. Creating and Using Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-tuple-elements">9.3.2. Accessing Tuple Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-unpacking">9.3.3. Tuple Unpacking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-coordinate-points">9.3.4. Multiple Coordinate Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">9.4. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-lists">9.4.1. Creating Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-elements-to-lists">9.4.2. Adding Elements to Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-list-elements">9.4.3. Accessing List Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-slicing">9.4.4. List Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-list-operations">9.4.5. Useful List Operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">9.5. Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-sets">9.5.1. Creating Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-elements-to-sets">9.5.2. Adding Elements to Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-set-operations">9.5.3. Practical Set Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-set-membership">9.5.4. Checking Set Membership</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dictionaries">9.6.1. Creating Dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-dictionary-values">9.6.2. Accessing Dictionary Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#safe-access-with-get">9.6.3. Safe Access with get()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-updating-values">9.6.4. Adding and Updating Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-geographic-feature-collections">9.6.5. Working with Geographic Feature Collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary-methods-for-data-exploration">9.6.6. Dictionary Methods for Data Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-gps-waypoint-management">9.6.7. Practical Example: GPS Waypoint Management</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structure-selection-guide">9.7. Data Structure Selection Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-each-data-structure">9.7.1. When to Use Each Data Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">9.8. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">9.9. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-using-lists">9.9.1. Exercise 1: Using Lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-using-tuples">9.9.2. Exercise 2: Using Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-working-with-sets">9.9.3. Exercise 3: Working with Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-working-with-dictionaries">9.9.4. Exercise 4: Working with Dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-nested-data-structures">9.9.5. Exercise 5: Nested Data Structures</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

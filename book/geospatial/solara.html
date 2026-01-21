@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>27. Building Interactive Dashboards with Voilà and Solara &#8212; Introduction to GIS Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/geospatial/solara';</script>
+    <link rel="canonical" href="https://gispro.gishub.org/book/geospatial/solara.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="28. Distributed Computing with Apache Sedona" href="sedona.html" />
+    <link rel="prev" title="26. Geospatial Data Processing with GDAL and OGR" href="gdal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to GIS Programming - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to GIS Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../software/overview.html">1. Overview of Software Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/conda.html">2. Introduction to Python Package Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode.html">3. Setting Up Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/git.html">4. Version Control with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/colab.html">5. Using Google Colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/jupyterlab.html">6. Working with JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/docker.html">7. Using Docker</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Programming Fundamentals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/variables.html">8. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/data-structures.html">9. Python Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/string-operations.html">10. String Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/looping.html">11. Loops and Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/functions-classes.html">12. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/files.html">13. Working with Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/numpy-pandas.html">14. Data Analysis with NumPy and Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geospatial Programming with Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="get-started.html">15. Introduction to Geospatial Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">16. Vector Data Analysis with GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rasterio.html">17. Working with Raster Data Using Rasterio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xarray.html">18. Multi-dimensional Data Analysis with Xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rioxarray.html">19. Raster Analysis with Rioxarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leafmap.html">20. Interactive Visualization with Leafmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whitebox.html">21. Geoprocessing with WhiteboxTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maplibre.html">22. 3D Mapping with MapLibre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geemap.html">23. Cloud Computing with Earth Engine and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypercoast.html">24. Hyperspectral Data Visualization with HyperCoast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duckdb.html">25. High-Performance Geospatial Analytics with DuckDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdal.html">26. Geospatial Data Processing with GDAL and OGR</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. Building Interactive Dashboards with Voilà and Solara</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sedona.html">28. Distributed Computing with Apache Sedona</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/intro-gispro/main?urlpath=tree/book/geospatial/solara.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/intro-gispro/blob/main/book/geospatial/solara.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/edit/main/book/geospatial/solara.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/intro-gispro/issues/new?title=Issue%20on%20page%20%2Fbook/geospatial/solara.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/geospatial/solara.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Building Interactive Dashboards with Voilà and Solara</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">27.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">27.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-voila-and-solara">27.3. Installing Voilà and Solara</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hugging-face-spaces">27.4. Introduction to Hugging Face Spaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-hugging-face-cli">27.4.1. Installing the Hugging Face CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in-to-hugging-face">27.4.2. Logging in to Hugging Face</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-voila-application">27.5. Creating a Basic Voilà Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-hugging-face-space">27.5.1. Creating a new Hugging Face Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding-the-hugging-face-space-in-your-website">27.5.2. Embedding the Hugging Face Space in Your Website</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-voila-application">27.5.3. Running the Voilà Application</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-file-structure-of-the-space">27.5.4. Exploring the File Structure of the Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-hugging-face-space">27.5.5. Updating the Hugging Face Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-space-from-the-hugging-face-website">27.5.5.1. Updating the Space from the Hugging Face Website</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-space-from-the-command-line">27.5.5.2. Updating the Space from the Command Line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-advanced-web-application-with-solara">27.6. Creating an Advanced Web Application with Solara</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-solara">27.6.1. Understanding Solara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-leafmap-template-for-solara">27.6.2. Using a Leafmap Template for Solara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-file-structure-of-the-solara-web-app">27.6.3. Exploring the File Structure of the Solara Web App</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-solara-components">27.6.4. Introduction to Solara Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-page">27.6.5. Creating a New Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-solara-web-app-locally">27.6.6. Running the Solara Web App Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-hugging-face-space">27.6.7. Pushing Changes to the Hugging Face Space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">27.7. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">27.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-simple-voila-dashboard">27.8.1. Exercise 1: Create a Simple Voilà Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-build-a-multi-page-solara-application">27.8.2. Exercise 2: Build a Multi-Page Solara Application</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="building-interactive-dashboards-with-voila-and-solara">
+<h1><span class="section-number">27. </span>Building Interactive Dashboards with Voilà and Solara<a class="headerlink" href="#building-interactive-dashboards-with-voila-and-solara" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">27.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">27.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+</section>
+<section id="installing-voila-and-solara">
+<h2><span class="section-number">27.3. </span>Installing Voilà and Solara<a class="headerlink" href="#installing-voila-and-solara" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install voila solara pygis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">voila</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">solara</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction-to-hugging-face-spaces">
+<h2><span class="section-number">27.4. </span>Introduction to Hugging Face Spaces<a class="headerlink" href="#introduction-to-hugging-face-spaces" title="Link to this heading">#</a></h2>
+<section id="installing-the-hugging-face-cli">
+<h3><span class="section-number">27.4.1. </span>Installing the Hugging Face CLI<a class="headerlink" href="#installing-the-hugging-face-cli" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install -U &quot;huggingface_hub[cli]&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logging-in-to-hugging-face">
+<h3><span class="section-number">27.4.2. </span>Logging in to Hugging Face<a class="headerlink" href="#logging-in-to-hugging-face" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>huggingface-cli<span class="w"> </span>login
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creating-a-basic-voila-application">
+<h2><span class="section-number">27.5. </span>Creating a Basic Voilà Application<a class="headerlink" href="#creating-a-basic-voila-application" title="Link to this heading">#</a></h2>
+<section id="creating-a-new-hugging-face-space">
+<h3><span class="section-number">27.5.1. </span>Creating a new Hugging Face Space<a class="headerlink" href="#creating-a-new-hugging-face-space" title="Link to this heading">#</a></h3>
+</section>
+<section id="embedding-the-hugging-face-space-in-your-website">
+<h3><span class="section-number">27.5.2. </span>Embedding the Hugging Face Space in Your Website<a class="headerlink" href="#embedding-the-hugging-face-space-in-your-website" title="Link to this heading">#</a></h3>
+</section>
+<section id="running-the-voila-application">
+<h3><span class="section-number">27.5.3. </span>Running the Voilà Application<a class="headerlink" href="#running-the-voila-application" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">leafmap.maplibregl</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">leafmap</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;liberty&quot;</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;globe&quot;</span><span class="p">,</span> <span class="n">sidebar_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;750px&quot;</span>
+<span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;USGS.Imagery&quot;</span><span class="p">)</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/world/world_cities.geojson&quot;</span>
+<span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Cities&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exploring-the-file-structure-of-the-space">
+<h3><span class="section-number">27.5.4. </span>Exploring the File Structure of the Space<a class="headerlink" href="#exploring-the-file-structure-of-the-space" title="Link to this heading">#</a></h3>
+</section>
+<section id="updating-the-hugging-face-space">
+<h3><span class="section-number">27.5.5. </span>Updating the Hugging Face Space<a class="headerlink" href="#updating-the-hugging-face-space" title="Link to this heading">#</a></h3>
+<section id="updating-the-space-from-the-hugging-face-website">
+<h4><span class="section-number">27.5.5.1. </span>Updating the Space from the Hugging Face Website<a class="headerlink" href="#updating-the-space-from-the-hugging-face-website" title="Link to this heading">#</a></h4>
+</section>
+<section id="updating-the-space-from-the-command-line">
+<h4><span class="section-number">27.5.5.2. </span>Updating the Space from the Command Line<a class="headerlink" href="#updating-the-space-from-the-command-line" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/spaces/YOUR-USERNAME/leafmap-voila
+<span class="nb">cd</span><span class="w"> </span>leafmap-voila
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>voila<span class="w"> </span>notebooks/
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>voila<span class="w"> </span>notebooks/<span class="w"> </span>--strip_sources<span class="o">=</span>False
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="creating-an-advanced-web-application-with-solara">
+<h2><span class="section-number">27.6. </span>Creating an Advanced Web Application with Solara<a class="headerlink" href="#creating-an-advanced-web-application-with-solara" title="Link to this heading">#</a></h2>
+<section id="understanding-solara">
+<h3><span class="section-number">27.6.1. </span>Understanding Solara<a class="headerlink" href="#understanding-solara" title="Link to this heading">#</a></h3>
+</section>
+<section id="using-a-leafmap-template-for-solara">
+<h3><span class="section-number">27.6.2. </span>Using a Leafmap Template for Solara<a class="headerlink" href="#using-a-leafmap-template-for-solara" title="Link to this heading">#</a></h3>
+</section>
+<section id="exploring-the-file-structure-of-the-solara-web-app">
+<h3><span class="section-number">27.6.3. </span>Exploring the File Structure of the Solara Web App<a class="headerlink" href="#exploring-the-file-structure-of-the-solara-web-app" title="Link to this heading">#</a></h3>
+</section>
+<section id="introduction-to-solara-components">
+<h3><span class="section-number">27.6.4. </span>Introduction to Solara Components<a class="headerlink" href="#introduction-to-solara-components" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">solara</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">leafmap.maplibregl</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">leafmap</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_map</span><span class="p">():</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;liberty&quot;</span><span class="p">,</span>
+        <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;globe&quot;</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="s2">&quot;750px&quot;</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">sidebar_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+
+<span class="nd">@solara</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Page</span><span class="p">():</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">create_map</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">to_solara</span><span class="p">()</span>
+
+
+<span class="n">Page</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-new-page">
+<h3><span class="section-number">27.6.5. </span>Creating a New Page<a class="headerlink" href="#creating-a-new-page" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">solara</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">leafmap.maplibregl</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">leafmap</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_map</span><span class="p">():</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;positron&quot;</span><span class="p">,</span>
+        <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;globe&quot;</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="s2">&quot;750px&quot;</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">sidebar_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">geojson</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/opengeos/datasets/releases/download/world/mgrs_grid_zone.geojson&quot;</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">geojson</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add_labels</span><span class="p">(</span><span class="n">geojson</span><span class="p">,</span> <span class="s2">&quot;GZD&quot;</span><span class="p">,</span> <span class="n">text_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">min_zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+
+<span class="nd">@solara</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Page</span><span class="p">():</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">create_map</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">to_solara</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-the-solara-web-app-locally">
+<h3><span class="section-number">27.6.6. </span>Running the Solara Web App Locally<a class="headerlink" href="#running-the-solara-web-app-locally" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>solara-maplibre
+solara<span class="w"> </span>run<span class="w"> </span>pages/
+</pre></div>
+</div>
+</section>
+<section id="pushing-changes-to-the-hugging-face-space">
+<h3><span class="section-number">27.6.7. </span>Pushing Changes to the Hugging Face Space<a class="headerlink" href="#pushing-changes-to-the-hugging-face-space" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update the web app&quot;</span>
+git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+</section>
+<section id="key-takeaways">
+<h2><span class="section-number">27.7. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+</section>
+<section id="exercises">
+<h2><span class="section-number">27.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-create-a-simple-voila-dashboard">
+<h3><span class="section-number">27.8.1. </span>Exercise 1: Create a Simple Voilà Dashboard<a class="headerlink" href="#exercise-1-create-a-simple-voila-dashboard" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-2-build-a-multi-page-solara-application">
+<h3><span class="section-number">27.8.2. </span>Exercise 2: Build a Multi-Page Solara Application<a class="headerlink" href="#exercise-2-build-a-multi-page-solara-application" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "giswqs/intro-gispro",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/geospatial"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="gdal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Geospatial Data Processing with GDAL and OGR</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sedona.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Distributed Computing with Apache Sedona</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">27.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">27.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-voila-and-solara">27.3. Installing Voilà and Solara</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hugging-face-spaces">27.4. Introduction to Hugging Face Spaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-hugging-face-cli">27.4.1. Installing the Hugging Face CLI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in-to-hugging-face">27.4.2. Logging in to Hugging Face</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-basic-voila-application">27.5. Creating a Basic Voilà Application</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-hugging-face-space">27.5.1. Creating a new Hugging Face Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding-the-hugging-face-space-in-your-website">27.5.2. Embedding the Hugging Face Space in Your Website</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-voila-application">27.5.3. Running the Voilà Application</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-file-structure-of-the-space">27.5.4. Exploring the File Structure of the Space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-hugging-face-space">27.5.5. Updating the Hugging Face Space</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-space-from-the-hugging-face-website">27.5.5.1. Updating the Space from the Hugging Face Website</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-space-from-the-command-line">27.5.5.2. Updating the Space from the Command Line</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-advanced-web-application-with-solara">27.6. Creating an Advanced Web Application with Solara</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-solara">27.6.1. Understanding Solara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-leafmap-template-for-solara">27.6.2. Using a Leafmap Template for Solara</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-file-structure-of-the-solara-web-app">27.6.3. Exploring the File Structure of the Solara Web App</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-solara-components">27.6.4. Introduction to Solara Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-page">27.6.5. Creating a New Page</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-solara-web-app-locally">27.6.6. Running the Solara Web App Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-changes-to-the-hugging-face-space">27.6.7. Pushing Changes to the Hugging Face Space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">27.7. Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">27.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-simple-voila-dashboard">27.8.1. Exercise 1: Create a Simple Voilà Dashboard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-build-a-multi-page-solara-application">27.8.2. Exercise 2: Build a Multi-Page Solara Application</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

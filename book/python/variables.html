@@ -849,6 +849,9 @@ Modified: Los Francisco
 <h2><span class="section-number">8.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-variable-assignment-and-basic-operations">
 <h3><span class="section-number">8.11.1. </span>Exercise 1: Variable Assignment and Basic Operations<a class="headerlink" href="#exercise-1-variable-assignment-and-basic-operations" title="Link to this heading">#</a></h3>
+</section>
+<section id="exercise-2-working-with-strings">
+<h3><span class="section-number">8.11.2. </span>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">New_York_latitude</span> <span class="o">=</span> <span class="mf">40.7128</span>
@@ -856,19 +859,49 @@ Modified: Los Francisco
 <span class="n">New_York_population</span> <span class="o">=</span> <span class="mi">8336817</span>
 <span class="n">New_York_area_sqkm</span> <span class="o">=</span> <span class="mf">783.8</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New York Latitude: (New_York_latitude), New York Longitude: (New_York_longitude)&quot;</span><span class="p">)</span>
+<span class="n">coordinates_NY</span> <span class="o">=</span> <span class="p">[</span><span class="n">New_York_latitude</span><span class="p">,</span><span class="n">New_York_longitude</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New York Latitude:&quot;</span><span class="p">,</span> <span class="n">coordinates_NY</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New York Longitude:&quot;</span><span class="p">,</span> <span class="n">coordinates_NY</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York Latitude: (New_York_latitude), New York Longitude: (New_York_longitude)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York Latitude: 40.7128
+New York Longitude: -74.006
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="exercise-2-working-with-strings">
-<h3><span class="section-number">8.11.2. </span>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city_name</span> <span class="o">=</span> <span class="s2">&quot;New York City&quot;</span>
+<span class="n">city_name_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">city_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;City name length:&quot;</span><span class="p">,</span> <span class="n">city_name_length</span><span class="p">)</span>
+<span class="n">city_name_lower</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;City name in lowercase:&quot;</span><span class="p">,</span> <span class="n">city_name_lower</span><span class="p">)</span>
+<span class="n">city_name_upper</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;City name in uppercase:&quot;</span><span class="p">,</span> <span class="n">city_name_upper</span><span class="p">)</span>
+<span class="n">new_city</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; City&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">city_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Modified:&quot;</span><span class="p">,</span> <span class="n">new_city</span><span class="p">)</span>
+
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>City name length: 13
+City name in lowercase: new york city
+City name in uppercase: NEW YORK CITY
+Original: New York City
+Modified: New York 
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

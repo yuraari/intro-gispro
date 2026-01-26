@@ -511,12 +511,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-case">8.9.1. Changing Case</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-text">8.9.2. Replacing Text</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-string-methods">8.9.3. Other Useful String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.9.4. Exercise 2: Working with Strings</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">8.10. Key Takeaways</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.11. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">8.11.1. Exercise 1: Variable Assignment and Basic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.11.2. Exercise 2: Working with Strings</a></li>
 </ul>
 </li>
 </ul>
@@ -841,6 +841,9 @@ Modified: Los Francisco
 </div>
 </div>
 </section>
+<section id="exercise-2-working-with-strings">
+<h3><span class="section-number">8.9.4. </span>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h3>
+</section>
 </section>
 <section id="key-takeaways">
 <h2><span class="section-number">8.10. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
@@ -849,12 +852,17 @@ Modified: Los Francisco
 <h2><span class="section-number">8.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-variable-assignment-and-basic-operations">
 <h3><span class="section-number">8.11.1. </span>Exercise 1: Variable Assignment and Basic Operations<a class="headerlink" href="#exercise-1-variable-assignment-and-basic-operations" title="Link to this heading">#</a></h3>
-</section>
-<section id="exercise-2-working-with-strings">
-<h3><span class="section-number">8.11.2. </span>Exercise 2: Working with Strings<a class="headerlink" href="#exercise-2-working-with-strings" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">New_York_latitude</span> <span class="o">=</span> <span class="mf">40.7128</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#reate variables to store the following geospatial data:</span>
+<span class="c1">#• The latitude and longitude of New York City: 40.7128, −74.0060.</span>
+<span class="c1">#• The population of New York City: 8,336,817.</span>
+<span class="c1">#• The area of New York City in square kilometers: 783.8.</span>
+<span class="c1">#Perform the following tasks:</span>
+<span class="c1">#1. Calculate and print the population density of New York City (population per square kilometer).</span>
+<span class="c1">#2. Print the coordinates in the format “Latitude: [latitude], Longitude: [longitude]”.</span>
+
+<span class="n">New_York_latitude</span> <span class="o">=</span> <span class="mf">40.7128</span>
 <span class="n">New_York_longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">74.0060</span>
 <span class="n">New_York_population</span> <span class="o">=</span> <span class="mi">8336817</span>
 <span class="n">New_York_area_sqkm</span> <span class="o">=</span> <span class="mf">783.8</span>
@@ -875,7 +883,13 @@ New York Longitude: -74.006
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city_name</span> <span class="o">=</span> <span class="s2">&quot;New York City&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a string variable to store the name of a city, such as “New York City”. Perform the following</span>
+<span class="c1">#operations:</span>
+<span class="c1">#1. Convert the string to lowercase and print the result.</span>
+<span class="c1">#2. Convert the string to uppercase and print the result.</span>
+<span class="c1">#3. Replace “New York” with “Los Angeles” in the city name and print the new string.</span>
+
+<span class="n">city_name</span> <span class="o">=</span> <span class="s2">&quot;New York City&quot;</span>
 <span class="n">city_name_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">city_name</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;City name length:&quot;</span><span class="p">,</span> <span class="n">city_name_length</span><span class="p">)</span>
 <span class="n">city_name_lower</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -885,10 +899,6 @@ New York Longitude: -74.006
 <span class="n">new_city</span> <span class="o">=</span> <span class="n">city_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; City&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">city_name</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Modified:&quot;</span><span class="p">,</span> <span class="n">new_city</span><span class="p">)</span>
-
-
-
-
 </pre></div>
 </div>
 </div>
@@ -989,12 +999,12 @@ Modified: New York
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-case">8.9.1. Changing Case</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-text">8.9.2. Replacing Text</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-string-methods">8.9.3. Other Useful String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.9.4. Exercise 2: Working with Strings</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">8.10. Key Takeaways</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">8.11. Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-variable-assignment-and-basic-operations">8.11.1. Exercise 1: Variable Assignment and Basic Operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-working-with-strings">8.11.2. Exercise 2: Working with Strings</a></li>
 </ul>
 </li>
 </ul>

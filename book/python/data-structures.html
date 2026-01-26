@@ -572,6 +572,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokyo coordinates: (35.6895, 139.6917)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="accessing-tuple-elements">
@@ -585,6 +590,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Latitude: 35.6895
+Longitude: 139.6917
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="tuple-unpacking">
@@ -593,6 +604,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">tokyo_point</span>  <span class="c1"># Unpacking the tuple into two variables</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokyo is located at </span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">°N, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">°E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokyo is located at 35.6895°N, 139.6917°E
 </pre></div>
 </div>
 </div>
@@ -610,6 +626,13 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New York: </span><span class="si">{</span><span class="n">new_york</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;London: </span><span class="si">{</span><span class="n">london</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sydney: </span><span class="si">{</span><span class="n">sydney</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York: (40.7128, -74.006)
+London: (51.5074, -0.1278)
+Sydney: (-33.8688, 151.2093)
 </pre></div>
 </div>
 </div>
@@ -632,6 +655,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Travel route: [(35.6895, 139.6917), (34.0522, -118.2437), (51.5074, -0.1278)]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -641,12 +669,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elevation profile: [120.5, 135.2, 150.8, 168.3, 185.7, 203.1]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of city names</span>
 <span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;Paris&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cities to visit:&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cities to visit: [&#39;Tokyo&#39;, &#39;Los Angeles&#39;, &#39;London&#39;, &#39;Paris&#39;]
 </pre></div>
 </div>
 </div>
@@ -662,12 +700,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updated route: [(35.6895, 139.6917), (34.0522, -118.2437), (51.5074, -0.1278), (48.8566, 2.3522)]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new elevation measurement</span>
 <span class="n">elevations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">221.4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated elevations:&quot;</span><span class="p">,</span> <span class="n">elevations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updated elevations: [120.5, 135.2, 150.8, 168.3, 185.7, 203.1, 221.4]
 </pre></div>
 </div>
 </div>
@@ -687,6 +735,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First stop: (35.6895, 139.6917)
+Last stop: (48.8566, 2.3522)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="list-slicing">
@@ -700,6 +754,12 @@ document.write(`
 <span class="c1"># Get the middle portion of elevation data</span>
 <span class="n">middle_elevations</span> <span class="o">=</span> <span class="n">elevations</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Middle elevation readings:&quot;</span><span class="p">,</span> <span class="n">middle_elevations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First two stops: [(35.6895, 139.6917), (34.0522, -118.2437)]
+Middle elevation readings: [150.8, 168.3, 185.7]
 </pre></div>
 </div>
 </div>
@@ -723,6 +783,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of waypoints: 4
+Highest elevation: 221.4 meters
+Average elevation: 169.3 meters
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -738,6 +805,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regions visited: {&#39;Europe&#39;, &#39;North America&#39;, &#39;Asia&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,12 +821,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original list: [&#39;US&#39;, &#39;CA&#39;, &#39;MX&#39;, &#39;US&#39;, &#39;CA&#39;]
+Unique country codes: {&#39;CA&#39;, &#39;US&#39;, &#39;MX&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a set of coordinate system codes</span>
 <span class="n">crs_codes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:3857&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:32633&quot;</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coordinate reference systems:&quot;</span><span class="p">,</span> <span class="n">crs_codes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordinate reference systems: {&#39;EPSG:32633&#39;, &#39;EPSG:4326&#39;, &#39;EPSG:3857&#39;}
 </pre></div>
 </div>
 </div>
@@ -772,6 +855,13 @@ document.write(`
 <span class="c1"># Try to add a duplicate region</span>
 <span class="n">regions_visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Europe&quot;</span><span class="p">)</span>  <span class="c1"># This won&#39;t change the set</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After trying to add Europe again:&quot;</span><span class="p">,</span> <span class="n">regions_visited</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original set: {&#39;Europe&#39;, &#39;North America&#39;, &#39;Asia&#39;}
+After adding Africa: {&#39;Europe&#39;, &#39;Africa&#39;, &#39;North America&#39;, &#39;Asia&#39;}
+After trying to add Europe again: {&#39;Europe&#39;, &#39;Africa&#39;, &#39;North America&#39;, &#39;Asia&#39;}
 </pre></div>
 </div>
 </div>
@@ -802,6 +892,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Species in Area A: {&#39;maple&#39;, &#39;birch&#39;, &#39;pine&#39;, &#39;oak&#39;}
+Species in Area B: {&#39;cedar&#39;, &#39;pine&#39;, &#39;birch&#39;, &#39;fir&#39;}
+Species found in both areas: {&#39;pine&#39;, &#39;birch&#39;}
+Species only in Area A: {&#39;maple&#39;, &#39;oak&#39;}
+All species found: {&#39;cedar&#39;, &#39;birch&#39;, &#39;oak&#39;, &#39;fir&#39;, &#39;maple&#39;, &#39;pine&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="checking-set-membership">
@@ -816,6 +915,12 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We have visited Antarctica&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Antarctica not yet visited&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have visited Asia
+Antarctica not yet visited
 </pre></div>
 </div>
 </div>
@@ -840,6 +945,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokyo information: {&#39;name&#39;: &#39;Tokyo&#39;, &#39;population&#39;: 13929286, &#39;coordinates&#39;: (35.6895, 139.6917), &#39;country&#39;: &#39;Japan&#39;, &#39;established&#39;: 1603}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -853,6 +963,11 @@ document.write(`
     <span class="s2">&quot;date_surveyed&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-06-15&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Survey point data:&quot;</span><span class="p">,</span> <span class="n">survey_point</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Survey point data: {&#39;point_id&#39;: &#39;SP001&#39;, &#39;latitude&#39;: 40.7589, &#39;longitude&#39;: -73.9851, &#39;elevation&#39;: 87.3, &#39;land_cover&#39;: &#39;urban&#39;, &#39;date_surveyed&#39;: &#39;2023-06-15&#39;}
 </pre></div>
 </div>
 </div>
@@ -873,6 +988,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>City: Tokyo
+Population: 13,929,286
+Coordinates: (35.6895, 139.6917)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="safe-access-with-get">
@@ -888,6 +1010,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Area: Not specified
+Timezone: Unknown
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="adding-and-updating-values">
@@ -900,6 +1028,11 @@ document.write(`
 <span class="n">tokyo_info</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14000000</span>  <span class="c1"># Update population</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated Tokyo info:&quot;</span><span class="p">,</span> <span class="n">tokyo_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updated Tokyo info: {&#39;name&#39;: &#39;Tokyo&#39;, &#39;population&#39;: 14000000, &#39;coordinates&#39;: (35.6895, 139.6917), &#39;country&#39;: &#39;Japan&#39;, &#39;established&#39;: 1603, &#39;area_km2&#39;: 2191, &#39;timezone&#39;: &#39;JST&#39;}
 </pre></div>
 </div>
 </div>
@@ -935,6 +1068,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>France&#39;s capital: Paris
+Population: 2,161,000
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="dictionary-methods-for-data-exploration">
@@ -952,6 +1091,14 @@ document.write(`
 <span class="c1"># Get all countries in our capitals dictionary</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">world_capitals</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Countries in our database:&quot;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Keys in tokyo_info: [&#39;name&#39;, &#39;population&#39;, &#39;coordinates&#39;, &#39;country&#39;, &#39;established&#39;, &#39;area_km2&#39;, &#39;timezone&#39;]
+Values in tokyo_info: [&#39;Tokyo&#39;, 14000000, (35.6895, 139.6917), &#39;Japan&#39;, 1603, 2191, &#39;JST&#39;]
+Coordinate information is available
+Countries in our database: [&#39;Japan&#39;, &#39;France&#39;, &#39;UK&#39;]
 </pre></div>
 </div>
 </div>
@@ -981,6 +1128,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waypoint: Trail Start
+Location: 45.3311, -121.7113
+Elevation: 1200 meters
+Available facilities: parking, restrooms, water
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -997,18 +1152,186 @@ document.write(`
 <h2><span class="section-number">9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-using-lists">
 <h3><span class="section-number">9.9.1. </span>Exercise 1: Using Lists<a class="headerlink" href="#exercise-1-using-lists" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different geographic locations as tuples</span>
+
+<span class="n">new_york</span> <span class="o">=</span>   <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">)</span>
+<span class="n">losangeles</span> <span class="o">=</span> <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">)</span>
+<span class="n">chicago</span> <span class="o">=</span>    <span class="p">(</span><span class="mf">41.8781</span><span class="p">,</span> <span class="o">-</span><span class="mf">87.6298</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New York: </span><span class="si">{</span><span class="n">new_york</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Los Angeles: </span><span class="si">{</span><span class="n">losangeles</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chicago: </span><span class="si">{</span><span class="n">chicago</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;new_york&quot;</span><span class="p">,</span> <span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="s2">&quot;Chicago&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cities to visit:&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="p">)</span>
+
+<span class="c1">#lists</span>
+<span class="n">cities_2</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>  <span class="c1"># New York</span>
+    <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span> <span class="c1">#Los Angeles</span>
+    <span class="p">(</span><span class="mf">41.8781</span><span class="p">,</span> <span class="o">-</span><span class="mf">87.6298</span><span class="p">)</span>  <span class="c1">#Chicago</span>
+<span class="p">]</span>
+
+<span class="n">cities_2</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mf">25.7617</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.1918</span><span class="p">))</span>  <span class="c1"># Add Miami to the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated list:&quot;</span><span class="p">,</span> <span class="n">cities_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York: (40.7128, -74.006)
+Los Angeles: (34.0522, -118.2437)
+Chicago: (41.8781, -87.6298)
+Cities to visit: [&#39;new_york&#39;, &#39;Los Angeles&#39;, &#39;Chicago&#39;]
+Updated list: [(40.7128, -74.006), (34.0522, -118.2437), (41.8781, -87.6298), (25.7617, -80.1918)]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2-using-tuples">
 <h3><span class="section-number">9.9.2. </span>Exercise 2: Using Tuples<a class="headerlink" href="#exercise-2-using-tuples" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a tuple to store the coordinates (latitude, longitude) of the Eiffel Tower: (48.8584, 2.2945). Perform</span>
+<span class="c1">#the following tasks:</span>
+<span class="c1">#1. Access and print the latitude and longitude values from the tuple.</span>
+<span class="c1">#2. Try to change the latitude value to 48.8585. What happens? Explain why.</span>
+<span class="n">tower</span> <span class="o">=</span>  <span class="p">(</span><span class="mf">48.8584</span><span class="p">,</span> <span class="mf">2.2945</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tower coordinates: </span><span class="si">{</span><span class="n">tower</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">tower</span>  <span class="c1"># Unpacking the tuple into two variables (this is called unpacking)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tower is located at </span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">°N, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">°E&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tower coordinates: (48.8584, 2.2945)
+Tower is located at 48.8584°N, 2.2945°E
+48.8584
+2.2945
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-3-working-with-sets">
 <h3><span class="section-number">9.9.3. </span>Exercise 3: Working with Sets<a class="headerlink" href="#exercise-3-working-with-sets" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a set of countries</span>
+<span class="c1">#1. Add a new country to the set.</span>
+<span class="c1">#2. Try to add the same country again. What happens?</span>
+<span class="c1">#3. Print the updated set.</span>
+<span class="n">can</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="s2">&quot;ecu&quot;</span><span class="p">,</span> <span class="s2">&quot;per&quot;</span><span class="p">,</span> <span class="s2">&quot;ven&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Paises de la CAN:&quot;</span><span class="p">,</span> <span class="n">can</span><span class="p">)</span>
+<span class="n">can</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;pan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Paises de la CAN:&quot;</span><span class="p">,</span> <span class="n">can</span><span class="p">)</span>
+<span class="n">can</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;pan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Paises de la CAN:&quot;</span><span class="p">,</span> <span class="n">can</span><span class="p">)</span> <span class="c1">#sets detect the duplications. it does not create a new entry for pan.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-4-working-with-dictionaries">
 <h3><span class="section-number">9.9.4. </span>Exercise 4: Working with Dictionaries<a class="headerlink" href="#exercise-4-working-with-dictionaries" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a Dictionary</span>
+<span class="c1">#• Name: “Amazon River”</span>
+<span class="c1">#• Length: 6400 km</span>
+<span class="c1">#• Countries: [“Peru”, “Colombia”]</span>
+<span class="c1">#Perform the following tasks:</span>
+<span class="c1">#1. Add a new key-value pair to the dictionary to store the river’s average discharge (e.g., 209,000 m³/s).</span>
+<span class="c1">#2. Update the length of the river to 6992 km.</span>
+<span class="c1">#3. Print the dictionary.</span>
+<span class="n">amazon_river</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Amazon River&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;length_km&quot;</span><span class="p">:</span> <span class="mi">6400</span><span class="p">,</span>
+    <span class="s2">&quot;countries&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Peru&quot;</span><span class="p">,</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Amazon River information:&quot;</span><span class="p">,</span> <span class="n">amazon_river</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amazon River information: {&#39;name&#39;: &#39;Amazon River&#39;, &#39;length_km&#39;: 6400, &#39;countries&#39;: [&#39;Peru&#39;, &#39;Colombia&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-5-nested-data-structures">
 <h3><span class="section-number">9.9.5. </span>Exercise 5: Nested Data Structures<a class="headerlink" href="#exercise-5-nested-data-structures" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a dictionary to represent a city that contains the city’s name, population, and coordinates (latitude,</span>
+<span class="c1">#longitude):</span>
+<span class="c1">#• Name: “Tokyo”</span>
+<span class="c1">#• Population: 13,515,271</span>
+<span class="c1">#• Coordinates: (35.6895, 139.6917)</span>
+<span class="c1">#Perform the following tasks:</span>
+<span class="c1">#1. Access and print the population of the city.</span>
+<span class="c1">#2. Access and print the city’s latitude.</span>
+<span class="c1">#3. Update the population to 14,000,000 and print the updated dictionary</span>
+
+
+<span class="c1"># Create the dictionary to represent the city</span>
+<span class="n">city</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Population&quot;</span><span class="p">:</span> <span class="mi">13515271</span><span class="p">,</span>
+    <span class="s2">&quot;Coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">)</span> <span class="c1"># (latitude, longitude)</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original City Dictionary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 1. Access and print the population of the city.</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">city</span><span class="p">[</span><span class="s2">&quot;Population&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1. Population of </span><span class="si">{</span><span class="n">city</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">population</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 2. Access and print the city’s latitude.</span>
+<span class="c1"># Coordinates is a tuple, so we access the first element (index 0) for latitude.</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="n">city</span><span class="p">[</span><span class="s2">&quot;Coordinates&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2. Latitude of </span><span class="si">{</span><span class="n">city</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">latitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 3. Access and print the city’s longitude.</span>
+<span class="c1"># Coordinates is a tuple, so we access the second element (index 1) for longitude.</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="n">city</span><span class="p">[</span><span class="s2">&quot;Coordinates&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2. Longitude of </span><span class="si">{</span><span class="n">city</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">longitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 4. Update the population to 14,000,000 and print the updated dictionary.</span>
+<span class="n">city</span><span class="p">[</span><span class="s2">&quot;Population&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14000000</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3. Population updated to </span><span class="si">{</span><span class="n">city</span><span class="p">[</span><span class="s1">&#39;Population&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Updated City Dictionary:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original City Dictionary:
+{&#39;Name&#39;: &#39;Tokyo&#39;, &#39;Population&#39;: 13515271, &#39;Coordinates&#39;: (35.6895, 139.6917)}
+------------------------------
+1. Population of Tokyo: 13515271
+------------------------------
+2. Latitude of Tokyo: 35.6895
+------------------------------
+2. Longitude of Tokyo: 139.6917
+------------------------------
+3. Population updated to 14000000.
+   Updated City Dictionary:
+{&#39;Name&#39;: &#39;Tokyo&#39;, &#39;Population&#39;: 14000000, &#39;Coordinates&#39;: (35.6895, 139.6917)}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

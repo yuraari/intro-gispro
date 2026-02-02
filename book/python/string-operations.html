@@ -567,6 +567,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location: Mount Everest
+Country: Nepal
+Description: Mount Everest is the highest peak
+in the world, located in the Himalayas.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="string-concatenation">
@@ -582,6 +590,12 @@ document.write(`
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;mountain_peaks.csv&quot;</span>
 <span class="n">file_path</span> <span class="o">=</span> <span class="n">data_folder</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File path: </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full location: Mount Everest, Nepal
+File path: geographic_data/mountain_peaks.csv
 </pre></div>
 </div>
 </div>
@@ -604,6 +618,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------
+Geographic Data Report
+------------------------------
+Location:    Mount Everest
+Elevation:    8,848 meters
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="string-length-and-basic-properties">
@@ -621,6 +644,13 @@ document.write(`
 <span class="c1"># Check if a string contains only digits (useful for coordinate validation)</span>
 <span class="n">zip_code</span> <span class="o">=</span> <span class="s2">&quot;94102&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is &#39;</span><span class="si">{</span><span class="n">zip_code</span><span class="si">}</span><span class="s2">&#39; numeric? </span><span class="si">{</span><span class="n">zip_code</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The location name &#39;Mount Everest&#39; has 13 characters
+Is &#39;SanFrancisco&#39; alphabetic? True
+Is &#39;94102&#39; numeric? True
 </pre></div>
 </div>
 </div>
@@ -651,6 +681,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mount Everest is located at coordinates 27.9881, 86.925
+Major cities in Nepal include: Kathmandu, Pokhara, Lalitpur
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -672,6 +708,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: Mount Everest
+Uppercase: MOUNT EVEREST
+Lowercase: mount everest
+Title case: Mount Everest
+Capitalize: Mount everest
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="whitespace-removal-methods">
@@ -687,6 +732,14 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;strip(): &#39;</span><span class="si">{</span><span class="n">messy_location</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>  <span class="c1"># Remove both sides</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;lstrip(): &#39;</span><span class="si">{</span><span class="n">messy_left</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>  <span class="c1"># Remove left side</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rstrip(): &#39;</span><span class="si">{</span><span class="n">messy_right</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>  <span class="c1"># Remove right side</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: &#39;   San Francisco   &#39;
+strip(): &#39;San Francisco&#39;
+lstrip(): &#39;Los Angeles&#39;
+rstrip(): &#39;Chicago&#39;
 </pre></div>
 </div>
 </div>
@@ -710,6 +763,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: Mount Everest, Nepal
+Updated: Mount Kilimanjaro, Nepal
+Original path: data/raw_data/geographic_data/raw_data/points.csv
+Clean path: data/geographic_data/points.csv
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="string-splitting">
@@ -730,6 +791,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: Mount Everest, Nepal, Asia
+Split into parts: [&#39;Mount Everest&#39;, &#39;Nepal&#39;, &#39;Asia&#39;]
+Mountain: Mount Everest
+Country: Nepal
+Continent: Asia
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,6 +809,15 @@ document.write(`
 <span class="n">latitude</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lat_str</span><span class="p">)</span>
 <span class="n">longitude</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lon_str</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed coordinates: Lat=</span><span class="si">{</span><span class="n">latitude</span><span class="si">}</span><span class="s2">, Lon=</span><span class="si">{</span><span class="n">longitude</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">latitude</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parsed coordinates: Lat=40.7128, Lon=-74.006
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.7128
 </pre></div>
 </div>
 </div>
@@ -750,6 +829,12 @@ document.write(`
 <span class="n">path_components</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path components: </span><span class="si">{</span><span class="n">path_components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filename: </span><span class="si">{</span><span class="n">path_components</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Last component is the filename</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Path components: [&#39;data&#39;, &#39;geographic&#39;, &#39;cities&#39;, &#39;world_cities.csv&#39;]
+Filename: world_cities.csv
 </pre></div>
 </div>
 </div>
@@ -766,6 +851,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joined city name: San Francisco, New York, Tokyo
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,6 +866,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full path: data/geographic/elevation/dem.tif
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,6 +878,15 @@ document.write(`
 <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;40.7128&quot;</span><span class="p">,</span> <span class="s2">&quot;-74.0060&quot;</span><span class="p">]</span>
 <span class="n">coordinate_string</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate string: </span><span class="si">{</span><span class="n">coordinate_string</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">coordinates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordinate string: 40.7128,-74.0060
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;40.7128&#39;, &#39;-74.0060&#39;]
 </pre></div>
 </div>
 </div>
@@ -815,6 +919,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location: Mount Everest
+Coordinates: (27.9881, 86.925)
+Mount Everest is located at 27.9881°N, 86.925°E with an elevation of 8848 meters
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="formatting-numbers-in-strings">
@@ -838,6 +949,13 @@ document.write(`
 
 <span class="n">formatted_stats</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;NYC Population: </span><span class="si">{</span><span class="n">population</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> people, Area: </span><span class="si">{</span><span class="n">area_sqkm</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> km²&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">formatted_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordinates: (40.71, -74.01)
+Coordinates: (40.7128, -74.0060)
+NYC Population: 8,336,817 people, Area: 783.8 km²
 </pre></div>
 </div>
 </div>
@@ -868,6 +986,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Location: San Francisco at coordinates (37.7749, -122.4194)
+Location: San Francisco at coordinates (37.7749, -122.4194)
+Location: San Francisco at coordinates (37.7749, -122.4194)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="practical-formatting-examples">
@@ -890,6 +1015,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated filename: survey_20260202_45.3311N_121.7113W.csv
+WKT Point: POINT(-121.7113 45.3311)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,6 +1036,15 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated SQL Query:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sql_query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated SQL Query:
+SELECT name, latitude, longitude
+FROM cities
+WHERE population &gt; 1,000,000
+AND region = &#39;North America&#39;
 </pre></div>
 </div>
 </div>
@@ -924,6 +1064,38 @@ document.write(`
 <h2><span class="section-number">10.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-manipulating-geographic-location-strings">
 <h3><span class="section-number">10.8.1. </span>Exercise 1: Manipulating Geographic Location Strings<a class="headerlink" href="#exercise-1-manipulating-geographic-location-strings" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span> <span class="o">=</span> <span class="s2">&quot;Amazon River&quot;</span>
+<span class="n">country_name</span> <span class="o">=</span> <span class="s2">&quot;Brazil&quot;</span>
+
+<span class="c1"># Convert to lowercase and uppercase</span>
+<span class="n">feature_lower</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">feature_upper</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original: </span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lowercase: </span><span class="si">{</span><span class="n">feature_lower</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Uppercase: </span><span class="si">{</span><span class="n">feature_upper</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Concatenate with country name</span>
+<span class="n">full_location</span> <span class="o">=</span> <span class="n">feature</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">country_name</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Full location: </span><span class="si">{</span><span class="n">full_location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Repeat the string three times with dashes</span>
+<span class="n">repeated_feature</span> <span class="o">=</span> <span class="p">(</span><span class="n">feature</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">feature</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Repeated feature: </span><span class="si">{</span><span class="n">repeated_feature</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: Amazon River
+Lowercase: amazon river
+Uppercase: AMAZON RIVER
+Full location: Amazon River, Brazil
+Repeated feature: Amazon River - Amazon River - Amazon River
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2-extracting-and-formatting-coordinates">
 <h3><span class="section-number">10.8.2. </span>Exercise 2: Extracting and Formatting Coordinates<a class="headerlink" href="#exercise-2-extracting-and-formatting-coordinates" title="Link to this heading">#</a></h3>

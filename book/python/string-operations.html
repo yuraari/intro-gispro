@@ -1099,9 +1099,121 @@ Repeated feature: Amazon River - Amazon River - Amazon River
 </section>
 <section id="exercise-2-extracting-and-formatting-coordinates">
 <h3><span class="section-number">10.8.2. </span>Exercise 2: Extracting and Formatting Coordinates<a class="headerlink" href="#exercise-2-extracting-and-formatting-coordinates" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Given a string with the format &quot;latitude, longitude&quot; (e.g., &quot;40.7128N, 74.0060W&quot; ), extract the</span>
+<span class="c1">#numeric values of latitude and longitude.</span>
+<span class="c1">#Convert these values to floats and remove the directional indicators ( N , S , E , W ).</span>
+<span class="c1">#Format the coordinates into a POINT WKT string (e.g., &quot;POINT(-74.0060 40.7128)&quot; ).</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given string with directional indicators</span>
+<span class="n">coordinate_string_directional</span> <span class="o">=</span> <span class="s2">&quot;40.7128N, 74.0060W&quot;</span>
+
+<span class="c1"># Split into latitude and longitude parts</span>
+<span class="n">lat_str_directional</span><span class="p">,</span> <span class="n">lon_str_directional</span> <span class="o">=</span> <span class="n">coordinate_string_directional</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+
+<span class="c1"># Remove directional indicators and convert to float</span>
+<span class="c1"># For latitude, remove &#39;N&#39; or &#39;S&#39;</span>
+<span class="n">latitude_numeric</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lat_str_directional</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+<span class="c1"># For longitude, remove &#39;E&#39; or &#39;W&#39;. If it&#39;s &#39;W&#39;, it should be negative.</span>
+<span class="c1"># Assuming &#39;W&#39; indicates negative longitude, and &#39;E&#39; indicates positive.</span>
+<span class="n">longitude_numeric</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lon_str_directional</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="c1"># Apply negative sign if original had &#39;W&#39;</span>
+<span class="k">if</span> <span class="s1">&#39;W&#39;</span> <span class="ow">in</span> <span class="n">lon_str_directional</span><span class="p">:</span> <span class="c1"># Check if &#39;W&#39; was in the original string</span>
+    <span class="n">longitude_numeric</span> <span class="o">=</span> <span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">longitude_numeric</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original string: </span><span class="si">{</span><span class="n">coordinate_string_directional</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted Latitude (float): </span><span class="si">{</span><span class="n">latitude_numeric</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted Longitude (float): </span><span class="si">{</span><span class="n">longitude_numeric</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Format into a POINT WKT string: &quot;POINT(longitude latitude)&quot;</span>
+<span class="n">wkt_point</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;POINT(</span><span class="si">{</span><span class="n">longitude_numeric</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">latitude_numeric</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WKT Point String: </span><span class="si">{</span><span class="n">wkt_point</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original string: 40.7128N, 74.0060W
+Extracted Latitude (float): 40.7128
+Extracted Longitude (float): -74.006
+WKT Point String: POINT(-74.006 40.7128)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-3-building-dynamic-sql-queries">
 <h3><span class="section-number">10.8.3. </span>Exercise 3: Building Dynamic SQL Queries<a class="headerlink" href="#exercise-3-building-dynamic-sql-queries" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Given a table name and a condition, dynamically build an SQL query string.</span>
+<span class="c1">#Example: If table_name = &quot;cities&quot; and condition = &quot;population &gt; 1000000&quot; , the query</span>
+<span class="c1">#should be &quot;SELECT * FROM cities WHERE population &gt; 1000000;&quot; .</span>
+<span class="c1">#Add additional conditions dynamically, like AND clauses.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;cities&quot;</span>
+<span class="n">condition_1</span> <span class="o">=</span> <span class="s2">&quot;population &gt; 1000000&quot;</span>
+
+<span class="c1"># Build the base SQL query</span>
+<span class="n">sql_query_base</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> WHERE </span><span class="si">{</span><span class="n">condition_1</span><span class="si">}</span><span class="s2">;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Base SQL Query:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sql_query_base</span><span class="p">)</span>
+
+<span class="c1"># Add additional conditions dynamically</span>
+<span class="n">condition_2</span> <span class="o">=</span> <span class="s2">&quot;region = &#39;Europe&#39;&quot;</span>
+<span class="n">condition_3</span> <span class="o">=</span> <span class="s2">&quot;is_capital = TRUE&quot;</span>
+
+<span class="c1"># Using f-strings for dynamic query building with AND clauses</span>
+<span class="n">sql_query_multi_condition</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> WHERE </span><span class="si">{</span><span class="n">condition_1</span><span class="si">}</span><span class="s2"> AND </span><span class="si">{</span><span class="n">condition_2</span><span class="si">}</span><span class="s2"> AND </span><span class="si">{</span><span class="n">condition_3</span><span class="si">}</span><span class="s2">;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">SQL Query with multiple conditions:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sql_query_multi_condition</span><span class="p">)</span>
+
+<span class="c1"># A more flexible way to build queries with an arbitrary number of conditions</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_sql_query</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">conditions</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">conditions</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">;&quot;</span>
+    <span class="n">conditions_str</span> <span class="o">=</span> <span class="s2">&quot; AND &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2"> WHERE </span><span class="si">{</span><span class="n">conditions_str</span><span class="si">}</span><span class="s2">;&quot;</span>
+
+<span class="n">conditions_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;population &gt; 500000&quot;</span><span class="p">,</span> <span class="s2">&quot;country = &#39;USA&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;elevation_m &lt; 500&quot;</span><span class="p">]</span>
+<span class="n">sql_query_from_list</span> <span class="o">=</span> <span class="n">build_sql_query</span><span class="p">(</span><span class="s2">&quot;landmarks&quot;</span><span class="p">,</span> <span class="n">conditions_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">SQL Query built from a list of conditions:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sql_query_from_list</span><span class="p">)</span>
+
+<span class="n">sql_query_no_conditions</span> <span class="o">=</span> <span class="n">build_sql_query</span><span class="p">(</span><span class="s2">&quot;countries&quot;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">SQL Query with no conditions:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sql_query_no_conditions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Base SQL Query:
+SELECT * FROM cities WHERE population &gt; 1000000;
+
+SQL Query with multiple conditions:
+SELECT * FROM cities WHERE population &gt; 1000000 AND region = &#39;Europe&#39; AND is_capital = TRUE;
+
+SQL Query built from a list of conditions:
+SELECT * FROM landmarks WHERE population &gt; 500000 AND country = &#39;USA&#39; AND elevation_m &lt; 500;
+
+SQL Query with no conditions:
+SELECT * FROM countries;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-4-string-normalization-and-cleaning">
 <h3><span class="section-number">10.8.4. </span>Exercise 4: String Normalization and Cleaning<a class="headerlink" href="#exercise-4-string-normalization-and-cleaning" title="Link to this heading">#</a></h3>

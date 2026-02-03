@@ -1217,9 +1217,102 @@ SELECT * FROM countries;
 </section>
 <section id="exercise-4-string-normalization-and-cleaning">
 <h3><span class="section-number">10.8.4. </span>Exercise 4: String Normalization and Cleaning<a class="headerlink" href="#exercise-4-string-normalization-and-cleaning" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Given a list of city names with inconsistent formatting (e.g.,</span>
+<span class="c1">#[&quot; new york &quot;, &quot;Los ANGELES&quot;, &quot; CHICAGO&quot;] ), normalize the names by:</span>
+<span class="c1">#‣ Stripping any leading or trailing whitespace.</span>
+<span class="c1">#‣ Converting them to title case (e.g., &quot;New York&quot; , &quot;Los Angeles&quot; , &quot;Chicago&quot; ).</span>
+<span class="c1">#• Ensure that the output is a clean list of city names.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city_names_raw</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; new york &quot;</span><span class="p">,</span> <span class="s2">&quot;Los ANGELES&quot;</span><span class="p">,</span> <span class="s2">&quot; CHICAGO &quot;</span><span class="p">,</span> <span class="s2">&quot;london &quot;</span><span class="p">,</span> <span class="s2">&quot;san francisco&quot;</span><span class="p">]</span>
+
+<span class="c1"># Normalize the city names</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_city_names</span><span class="p">(</span><span class="n">names_list</span><span class="p">):</span>
+    <span class="n">normalized_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names_list</span><span class="p">:</span>
+        <span class="c1"># Strip leading/trailing whitespace and convert to title case</span>
+        <span class="n">cleaned_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+        <span class="n">normalized_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cleaned_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">normalized_names</span>
+
+<span class="n">normalized_cities</span> <span class="o">=</span> <span class="n">normalize_city_names</span><span class="p">(</span><span class="n">city_names_raw</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original city names: </span><span class="si">{</span><span class="n">city_names_raw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Normalized city names: </span><span class="si">{</span><span class="n">normalized_cities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original city names: [&#39; new york &#39;, &#39;Los ANGELES&#39;, &#39; CHICAGO &#39;, &#39;london &#39;, &#39;san francisco&#39;]
+Normalized city names: [&#39;New York&#39;, &#39;Los Angeles&#39;, &#39;Chicago&#39;, &#39;London&#39;, &#39;San Francisco&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-5-parsing-and-extracting-address-information">
 <h3><span class="section-number">10.8.5. </span>Exercise 5: Parsing and Extracting Address Information<a class="headerlink" href="#exercise-5-parsing-and-extracting-address-information" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Given a string in the format &quot;Street, City, Country&quot; (e.g.,&quot;123 Main St, Springfield, USA&quot; ), write a function that parses the string into a dictionary with</span>
+<span class="c1">#keys street , city , and country .</span>
+<span class="c1">#The function should return a dictionary like</span>
+<span class="c1">#{&quot;street&quot;: &quot;123 Main St&quot;, &quot;city&quot;: &quot;Springfield&quot;, &quot;country&quot;: &quot;USA&quot;} .</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_address_string</span><span class="p">(</span><span class="n">address_string</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parses an address string in the format &#39;Street, City, Country&#39;</span>
+<span class="sd">    into a dictionary with keys &#39;street&#39;, &#39;city&#39;, and &#39;country&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">address_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">parts</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="c1"># Or raise an error for invalid format</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">address</span> <span class="o">=</span> <span class="s2">&quot;123 Main St, Springfield, USA&quot;</span>
+<span class="n">parsed_address</span> <span class="o">=</span> <span class="n">parse_address_string</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original address string: &#39;</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed address dictionary: </span><span class="si">{</span><span class="n">parsed_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">address_2</span> <span class="o">=</span> <span class="s2">&quot;456 Oak Ave, Metropolis, Canada&quot;</span>
+<span class="n">parsed_address_2</span> <span class="o">=</span> <span class="n">parse_address_string</span><span class="p">(</span><span class="n">address_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Original address string: &#39;</span><span class="si">{</span><span class="n">address_2</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed address dictionary: </span><span class="si">{</span><span class="n">parsed_address_2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Example of an invalid format</span>
+<span class="n">address_invalid</span> <span class="o">=</span> <span class="s2">&quot;789 Pine Ln, Gotham&quot;</span>
+<span class="n">parsed_address_invalid</span> <span class="o">=</span> <span class="n">parse_address_string</span><span class="p">(</span><span class="n">address_invalid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Original address string (invalid): &#39;</span><span class="si">{</span><span class="n">address_invalid</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed address dictionary: </span><span class="si">{</span><span class="n">parsed_address_invalid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original address string: &#39;123 Main St, Springfield, USA&#39;
+Parsed address dictionary: {&#39;street&#39;: &#39;123 Main St&#39;, &#39;city&#39;: &#39;Springfield&#39;, &#39;country&#39;: &#39;USA&#39;}
+
+Original address string: &#39;456 Oak Ave, Metropolis, Canada&#39;
+Parsed address dictionary: {&#39;street&#39;: &#39;456 Oak Ave&#39;, &#39;city&#39;: &#39;Metropolis&#39;, &#39;country&#39;: &#39;Canada&#39;}
+
+Original address string (invalid): &#39;789 Pine Ln, Gotham&#39;
+Parsed address dictionary: None
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

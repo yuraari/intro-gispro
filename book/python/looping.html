@@ -562,6 +562,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Latitude: 35.6895, Longitude: 139.6917
+Latitude: 34.0522, Longitude: -118.2437
+Latitude: 51.5074, Longitude: -0.1278
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="processing-multiple-data-points">
@@ -581,6 +588,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance from (0, 0) to (35.6895, 139.6917): 144.18
+Distance from (0, 0) to (34.0522, -118.2437): 123.05
+Distance from (0, 0) to (51.5074, -0.1278): 51.51
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="iterating-through-geographic-collections">
@@ -588,11 +602,26 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Working with a list of place names</span>
+
+<span class="c1">#In the above example, we used a for loop to iterate through a list of city names. The function</span>
+<span class="c1">#enumerate is used to get the index of each item in the list. This allows us to print the index and the city name in a</span>
+<span class="c1">#single line. The index starts at 0 and increments by 1 for each item in the list. This can be useful when</span>
+<span class="c1">#you need to keep track of the position of each item in the list.</span>
 <span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="s2">&quot;Chicago&quot;</span><span class="p">,</span> <span class="s2">&quot;Houston&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoenix&quot;</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Major US Cities:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cities</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Major US Cities:
+1. New York
+2. Los Angeles
+3. Chicago
+4. Houston
+5. Phoenix
 </pre></div>
 </div>
 </div>

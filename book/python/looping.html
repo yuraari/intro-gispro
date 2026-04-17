@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="10. String Operations" href="string-operations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Introduction to GIS Programming - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introduction to GIS Programming - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Introduction to GIS Programming - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -221,9 +210,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -437,7 +431,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -451,25 +445,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -834,18 +820,260 @@ Distance from (0, 0) to (51.5074, -0.1278): 51.51
 <h2><span class="section-number">11.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-using-for-loops-to-process-coordinate-lists">
 <h3><span class="section-number">11.9.1. </span>Exercise 1: Using For Loops to Process Coordinate Lists<a class="headerlink" href="#exercise-1-using-for-loops-to-process-coordinate-lists" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_exercise</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>  <span class="c1"># New York</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">),</span>  <span class="c1"># Sydney</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.2921</span><span class="p">,</span> <span class="mf">36.8219</span><span class="p">),</span>  <span class="c1"># Nairobi</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>            <span class="c1"># Equator</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">23.5505</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.6333</span><span class="p">)</span> <span class="c1"># Sao Paulo</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="ow">in</span> <span class="n">coordinates_exercise</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">lat</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">hemisphere</span> <span class="o">=</span> <span class="s2">&quot;Northern&quot;</span>
+    <span class="k">elif</span> <span class="n">lat</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">hemisphere</span> <span class="o">=</span> <span class="s2">&quot;Southern&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hemisphere</span> <span class="o">=</span> <span class="s2">&quot;on the Equator&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">) is in the </span><span class="si">{</span><span class="n">hemisphere</span><span class="si">}</span><span class="s2"> Hemisphere.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordinate (40.7128, -74.006) is in the Northern Hemisphere.
+Coordinate (-33.8688, 151.2093) is in the Southern Hemisphere.
+Coordinate (51.5074, -0.1278) is in the Northern Hemisphere.
+Coordinate (-1.2921, 36.8219) is in the Southern Hemisphere.
+Coordinate (0.0, 0.0) is in the on the Equator Hemisphere.
+Coordinate (-23.5505, -46.6333) is in the Southern Hemisphere.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2-while-loops-for-iterative-processing">
 <h3><span class="section-number">11.9.2. </span>Exercise 2: While Loops for Iterative Processing<a class="headerlink" href="#exercise-2-while-loops-for-iterative-processing" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_exercise</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>  <span class="c1"># New York</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>            <span class="c1"># Equator</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.2921</span><span class="p">,</span> <span class="mf">36.8219</span><span class="p">),</span>  <span class="c1"># Nairobi (negative latitude - loop should stop here)</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">),</span>  <span class="c1"># Sydney</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">23.5505</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.6333</span><span class="p">)</span> <span class="c1"># Sao Paulo</span>
+<span class="p">]</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing coordinates (stopping at first negative latitude):&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">coordinates_exercise</span><span class="p">):</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">coordinates_exercise</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">lat</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Encountered negative latitude (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">). Stopping loop.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Processing: (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing coordinates (stopping at first negative latitude):
+  Processing: (40.7128, -74.006)
+  Processing: (51.5074, -0.1278)
+  Processing: (0.0, 0.0)
+Encountered negative latitude (-1.2921, 36.8219). Stopping loop.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-3-conditional-logic-in-loops">
 <h3><span class="section-number">11.9.3. </span>Exercise 3: Conditional Logic in Loops<a class="headerlink" href="#exercise-3-conditional-logic-in-loops" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_to_filter</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>  <span class="c1"># New York</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">),</span>  <span class="c1"># Sydney</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.2921</span><span class="p">,</span> <span class="mf">36.8219</span><span class="p">),</span>  <span class="c1"># Nairobi</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>            <span class="c1"># Equator</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">23.5505</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.6333</span><span class="p">)</span> <span class="c1"># Sao Paulo</span>
+<span class="p">]</span>
+
+<span class="n">southern_hemisphere_coordinates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">southern_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="ow">in</span> <span class="n">coordinates_to_filter</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">lat</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">southern_hemisphere_coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+        <span class="n">southern_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinates in the Southern Hemisphere: </span><span class="si">{</span><span class="n">southern_hemisphere_coordinates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of coordinates in the Southern Hemisphere: </span><span class="si">{</span><span class="n">southern_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-4-filtering-data-with-combined-loops-and-conditionals">
 <h3><span class="section-number">11.9.4. </span>Exercise 4: Filtering Data with Combined Loops and Conditionals<a class="headerlink" href="#exercise-4-filtering-data-with-combined-loops-and-conditionals" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_exercise_lon</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span>  <span class="c1"># Los Angeles (Western)</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>   <span class="c1"># New York (Western)</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>    <span class="c1"># London (Western, near Prime Meridian)</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">),</span>  <span class="c1"># Sydney (Eastern)</span>
+    <span class="p">(</span><span class="mf">35.6762</span><span class="p">,</span> <span class="mf">139.6503</span><span class="p">),</span>   <span class="c1"># Tokyo (Eastern)</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>             <span class="c1"># Prime Meridian / Equator</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classifying coordinates by Longitude:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="ow">in</span> <span class="n">coordinates_exercise_lon</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">lon</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">) is in the Eastern Hemisphere.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">lon</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">) is in the Western Hemisphere.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate (</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">) is on the Prime Meridian.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classifying coordinates by Longitude:
+Coordinate (34.0522, -118.2437) is in the Western Hemisphere.
+Coordinate (40.7128, -74.006) is in the Western Hemisphere.
+Coordinate (51.5074, -0.1278) is in the Western Hemisphere.
+Coordinate (-33.8688, 151.2093) is in the Eastern Hemisphere.
+Coordinate (35.6762, 139.6503) is in the Eastern Hemisphere.
+Coordinate (0.0, 0.0) is on the Prime Meridian.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-5-generating-and-analyzing-random-coordinates">
 <h3><span class="section-number">11.9.5. </span>Exercise 5: Generating and Analyzing Random Coordinates<a class="headerlink" href="#exercise-5-generating-and-analyzing-random-coordinates" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_coordinates_ex5</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>  <span class="c1"># New York (Northern)</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">33.8688</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">),</span>  <span class="c1"># Sydney (Southern)</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London (Northern)</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">1.2921</span><span class="p">,</span> <span class="mf">36.8219</span><span class="p">),</span>  <span class="c1"># Nairobi (Southern)</span>
+    <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>            <span class="c1"># Equator</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">23.5505</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.6333</span><span class="p">)</span>  <span class="c1"># Sao Paulo (Southern)</span>
+<span class="p">]</span>
+
+<span class="n">southern_hemisphere_coords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">southern_hemisphere_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="ow">in</span> <span class="n">analysis_coordinates_ex5</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">lat</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">southern_hemisphere_coords</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+        <span class="n">southern_hemisphere_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinates in the Southern Hemisphere: </span><span class="si">{</span><span class="n">southern_hemisphere_coords</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of coordinates in the Southern Hemisphere: </span><span class="si">{</span><span class="n">southern_hemisphere_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write a program that generates random coordinates (latitude between [−90, 90] degrees and longitude</span>
+<span class="c1">#between [−180, 180] degrees).</span>
+<span class="c1">#• Use a while loop to keep generating coordinates until a pair with both latitude and longitude greater</span>
+<span class="c1">#than 50 is generated.</span>
+<span class="c1">#• Print each generated coordinate and the final coordinate that meets the condition.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># Initialize variables to ensure the while loop starts</span>
+<span class="n">found_lat</span> <span class="o">=</span> <span class="o">-</span><span class="mi">91</span>
+<span class="n">found_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mi">181</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generating random coordinates...&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">found_lat</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">found_lon</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="n">found_lat</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>  <span class="c1"># Latitude between -90 and 90</span>
+    <span class="n">found_lon</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span> <span class="c1"># Longitude between -180 and 180</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated: Latitude: </span><span class="si">{</span><span class="n">found_lat</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, Longitude: </span><span class="si">{</span><span class="n">found_lon</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final coordinate meeting the condition (lat &gt; 50 and lon &gt; 50):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude: </span><span class="si">{</span><span class="n">found_lat</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, Longitude: </span><span class="si">{</span><span class="n">found_lon</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating random coordinates...
+Generated: Latitude: -62.61, Longitude: 102.67
+Generated: Latitude: -38.48, Longitude: 20.11
+Generated: Latitude: 3.64, Longitude: -156.70
+Generated: Latitude: 24.42, Longitude: 127.24
+Generated: Latitude: 19.66, Longitude: 174.58
+Generated: Latitude: -75.35, Longitude: 93.28
+Generated: Latitude: 31.88, Longitude: -130.39
+Generated: Latitude: 35.73, Longitude: -110.71
+Generated: Latitude: -15.69, Longitude: -72.00
+Generated: Latitude: 42.64, Longitude: 153.67
+Generated: Latitude: -17.94, Longitude: -85.55
+Generated: Latitude: 59.16, Longitude: -88.26
+Generated: Latitude: 84.51, Longitude: -11.23
+Generated: Latitude: -7.20, Longitude: 136.97
+Generated: Latitude: -87.24, Longitude: 0.01
+Generated: Latitude: -23.87, Longitude: 27.61
+Generated: Latitude: -4.42, Longitude: -93.75
+Generated: Latitude: 26.70, Longitude: 47.76
+Generated: Latitude: -42.81, Longitude: 89.17
+Generated: Latitude: -18.10, Longitude: 131.19
+Generated: Latitude: -82.67, Longitude: 177.16
+Generated: Latitude: 10.07, Longitude: -16.26
+Generated: Latitude: 44.45, Longitude: 122.86
+Generated: Latitude: -51.37, Longitude: -20.96
+Generated: Latitude: 32.06, Longitude: -171.98
+Generated: Latitude: 5.90, Longitude: 1.31
+Generated: Latitude: 8.85, Longitude: 83.67
+Generated: Latitude: -77.86, Longitude: -35.92
+Generated: Latitude: -15.54, Longitude: 18.38
+Generated: Latitude: -35.19, Longitude: -43.06
+Generated: Latitude: 16.54, Longitude: -166.11
+Generated: Latitude: -3.84, Longitude: 107.82
+Generated: Latitude: -7.00, Longitude: -56.67
+Generated: Latitude: -21.56, Longitude: 173.27
+Generated: Latitude: 89.96, Longitude: -122.84
+Generated: Latitude: -70.04, Longitude: 153.60
+Generated: Latitude: 19.70, Longitude: -22.29
+Generated: Latitude: 31.22, Longitude: -28.14
+Generated: Latitude: -47.74, Longitude: -26.89
+Generated: Latitude: -39.50, Longitude: 38.23
+Generated: Latitude: -66.53, Longitude: 155.85
+Generated: Latitude: -64.55, Longitude: -14.92
+Generated: Latitude: 12.62, Longitude: 161.24
+Generated: Latitude: 41.32, Longitude: 41.13
+Generated: Latitude: 70.41, Longitude: 13.69
+Generated: Latitude: 77.10, Longitude: 6.36
+Generated: Latitude: -28.65, Longitude: 112.87
+Generated: Latitude: -53.50, Longitude: 175.04
+Generated: Latitude: 31.74, Longitude: -55.63
+Generated: Latitude: 6.95, Longitude: -26.82
+Generated: Latitude: -83.24, Longitude: -82.17
+Generated: Latitude: 30.94, Longitude: -131.38
+Generated: Latitude: 58.36, Longitude: 79.62
+
+Final coordinate meeting the condition (lat &gt; 50 and lon &gt; 50):
+Latitude: 58.36, Longitude: 79.62
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -905,14 +1133,16 @@ Distance from (0, 0) to (51.5074, -0.1278): 51.51
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">11.1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.2. Learning Objectives</a></li>
@@ -996,8 +1226,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

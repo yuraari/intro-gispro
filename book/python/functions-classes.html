@@ -588,6 +588,11 @@ Hi, Bob!
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiplication Result: 20
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="geospatial-example-haversine-function">
@@ -620,6 +625,11 @@ Hi, Bob!
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance: 8815.47 km
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="function-with-default-values-and-geospatial-application">
@@ -648,6 +658,12 @@ Hi, Bob!
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance in kilometers: 8815.47 km
+Distance in miles: 5477.74 miles
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="processing-multiple-coordinates">
@@ -668,6 +684,11 @@ Hi, Bob!
 <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">),</span> <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span> <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">)]</span>
 <span class="n">distances</span> <span class="o">=</span> <span class="n">batch_haversine</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distances: </span><span class="si">{</span><span class="n">distances</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distances: [8815.473355809401, 3935.746254609723]
 </pre></div>
 </div>
 </div>
@@ -814,12 +835,194 @@ Hi, Bob!
 <h2><span class="section-number">12.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-calculating-distances-with-functions">
 <h3><span class="section-number">12.8.1. </span>Exercise 1: Calculating Distances with Functions<a class="headerlink" href="#exercise-1-calculating-distances-with-functions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define a function calculate_distance that takes two geographic coordinates (latitude and longitude)</span>
+<span class="c1">#and returns the distance between them using the Haversine formula37.</span>
+<span class="c1">#Use this function to calculate the distance between multiple pairs of coordinates.</span>
+<span class="c1">#Test your function with coordinates for cities you know and verify the results make sense.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the distance between two geographic coordinates using the Haversine formula.&quot;&quot;&quot;</span>
+    <span class="c1"># The haversine function is already defined in previous cells</span>
+    <span class="k">return</span> <span class="n">haversine</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">)</span>
+
+
+<span class="c1"># Test your function with coordinates for cities you know</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;London&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="mf">0.1278</span><span class="p">),</span>
+    <span class="s2">&quot;Paris&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">48.8566</span><span class="p">,</span> <span class="mf">2.3522</span><span class="p">),</span>
+    <span class="s2">&quot;New York&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span>
+    <span class="s2">&quot;Tokyo&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Example usage: Calculate distance between multiple pairs of coordinates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distances between cities:&quot;</span><span class="p">)</span>
+<span class="n">distance_london_paris</span> <span class="o">=</span> <span class="n">calculate_distance</span><span class="p">(</span><span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;London&quot;</span><span class="p">],</span> <span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;Paris&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance between London and Paris: </span><span class="si">{</span><span class="n">distance_london_paris</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="n">distance_newyork_tokyo</span> <span class="o">=</span> <span class="n">calculate_distance</span><span class="p">(</span><span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">],</span> <span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance between New York and Tokyo: </span><span class="si">{</span><span class="n">distance_newyork_tokyo</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="n">distance_paris_newyork</span> <span class="o">=</span> <span class="n">calculate_distance</span><span class="p">(</span><span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;Paris&quot;</span><span class="p">],</span> <span class="o">*</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance between Paris and New York: </span><span class="si">{</span><span class="n">distance_paris_newyork</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distances between cities:
+Distance between London and Paris: 334.58 km
+Distance between New York and Tokyo: 10848.81 km
+Distance between Paris and New York: 5837.24 km
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-2-batch-distance-calculation">
 <h3><span class="section-number">12.8.2. </span>Exercise 2: Batch Distance Calculation<a class="headerlink" href="#exercise-2-batch-distance-calculation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_distance_calculation</span><span class="p">(</span><span class="n">coord_list</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kilometers&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates distances between consecutive coordinate pairs in a list, with optional units.&quot;&quot;&quot;</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Determine the radius based on units</span>
+    <span class="k">if</span> <span class="n">units</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;miles&quot;</span><span class="p">:</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="mf">3958.8</span>  <span class="c1"># Earth radius in miles</span>
+    <span class="k">elif</span> <span class="n">units</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;kilometers&quot;</span><span class="p">:</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="mf">6371.0</span>  <span class="c1"># Earth radius in kilometers</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Units must be &#39;kilometers&#39; or &#39;miles&#39;&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coord_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span> <span class="o">=</span> <span class="n">coord_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="n">coord_list</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">haversine</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+        <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">distances</span>
+
+
+<span class="c1"># Test the function with a list of coordinates representing several cities.</span>
+<span class="n">cities_coords</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="mf">0.1278</span><span class="p">),</span>  <span class="c1"># London</span>
+    <span class="p">(</span><span class="mf">48.8566</span><span class="p">,</span> <span class="mf">2.3522</span><span class="p">),</span>  <span class="c1"># Paris</span>
+    <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">),</span> <span class="c1"># New York</span>
+    <span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">)</span> <span class="c1"># Tokyo</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distances between consecutive cities (kilometers):&quot;</span><span class="p">)</span>
+<span class="n">k_distances</span> <span class="o">=</span> <span class="n">batch_distance_calculation</span><span class="p">(</span><span class="n">cities_coords</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kilometers&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dist</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_distances</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Distance </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">dist</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distances between consecutive cities (miles):&quot;</span><span class="p">)</span>
+<span class="n">m_distances</span> <span class="o">=</span> <span class="n">batch_distance_calculation</span><span class="p">(</span><span class="n">cities_coords</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;miles&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dist</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">m_distances</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Distance </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">dist</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> miles&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distances between consecutive cities (kilometers):
+  Distance 1: 334.58 km
+  Distance 2: 5837.24 km
+  Distance 3: 10848.81 km
+
+Distances between consecutive cities (miles):
+  Distance 1: 207.90 miles
+  Distance 2: 3627.13 miles
+  Distance 3: 6741.21 miles
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="exercise-3-creating-and-using-a-point-class">
 <h3><span class="section-number">12.8.3. </span>Exercise 3: Creating and Using a Point Class<a class="headerlink" href="#exercise-3-creating-and-using-a-point-class" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Default title text</span>
+<span class="c1"># Define a Point class to represent a geographic point with attributes latitude , longitude , and</span>
+<span class="c1"># name .</span>
+<span class="c1"># • Add a method distance_to that calculates the distance from one point to another.</span>
+<span class="c1"># • Include a __str__ method that provides a readable representation of the point.</span>
+<span class="c1"># • Instantiate several Point objects and calculate the distance between them.</span>
+<span class="c1"># • Create a method is_in_northern_hemisphere that returns True if the point is north of the equator.Define a Point class to represent a geographic point with attributes latitude , longitude , and</span>
+<span class="c1"># name .</span>
+<span class="c1"># • Add a method distance_to that calculates the distance from one point to another.</span>
+<span class="c1"># • Include a __str__ method that provides a readable representation of the point.</span>
+<span class="c1"># • Instantiate several Point objects and calculate the distance between them.</span>
+<span class="c1"># • Create a method is_in_northern_hemisphere that returns True if the point is north of the equator.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Unnamed Point&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">distance_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_point</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the distance between this point and another point using the haversine formula.&quot;&quot;&quot;</span>
+        <span class="c1"># The haversine function is already defined in a previous cell (cell 10)</span>
+        <span class="k">return</span> <span class="n">haversine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">other_point</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">other_point</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Provides a readable string representation of the point.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">latitude</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">longitude</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_in_northern_hemisphere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns True if the point is north of the equator (latitude &gt; 0).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+
+<span class="c1"># Instantiate several Point objects</span>
+<span class="n">point_london</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">51.5074</span><span class="p">,</span> <span class="mf">0.1278</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">)</span>
+<span class="n">point_paris</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">48.8566</span><span class="p">,</span> <span class="mf">2.3522</span><span class="p">,</span> <span class="s2">&quot;Paris&quot;</span><span class="p">)</span>
+<span class="n">point_new_york</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">)</span>
+<span class="n">point_buenos_aires</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">34.6037</span><span class="p">,</span> <span class="o">-</span><span class="mf">58.3816</span><span class="p">,</span> <span class="s2">&quot;Buenos Aires&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point 1: </span><span class="si">{</span><span class="n">point_london</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point 2: </span><span class="si">{</span><span class="n">point_paris</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point 3: </span><span class="si">{</span><span class="n">point_new_york</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point 4: </span><span class="si">{</span><span class="n">point_buenos_aires</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Calculate distances between them</span>
+<span class="n">distance_london_paris</span> <span class="o">=</span> <span class="n">point_london</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">point_paris</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distance between </span><span class="si">{</span><span class="n">point_london</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">point_paris</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">distance_london_paris</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="n">distance_new_york_london</span> <span class="o">=</span> <span class="n">point_new_york</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">point_london</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance between </span><span class="si">{</span><span class="n">point_new_york</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">point_london</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">distance_new_york_london</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check hemispheres</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">point_london</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> in Northern Hemisphere: </span><span class="si">{</span><span class="n">point_london</span><span class="o">.</span><span class="n">is_in_northern_hemisphere</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">point_buenos_aires</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> in Northern Hemisphere: </span><span class="si">{</span><span class="n">point_buenos_aires</span><span class="o">.</span><span class="n">is_in_northern_hemisphere</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point 1: London (51.5074, 0.1278)
+Point 2: Paris (48.8566, 2.3522)
+Point 3: New York (40.7128, -74.0060)
+Point 4: Buenos Aires (-34.6037, -58.3816)
+
+Distance between London and Paris: 334.58 km
+Distance between New York and London: 5587.01 km
+
+London in Northern Hemisphere: True
+Buenos Aires in Northern Hemisphere: False
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

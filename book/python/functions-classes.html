@@ -710,6 +710,12 @@ Distance in miles: 5477.74 miles
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.0
+20.0
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="keyword-arguments-with-kwargs">
@@ -729,6 +735,33 @@ Distance in miles: 5477.74 miles
 <span class="c1"># Example usage</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">describe_point</span><span class="p">(</span><span class="mf">35.6895</span><span class="p">,</span> <span class="mf">139.6917</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Tokyo&quot;</span><span class="p">,</span> <span class="n">population</span><span class="o">=</span><span class="mi">37400000</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">describe_point</span><span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Los Angeles&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;California&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point at (35.6895, 139.6917), name: Tokyo, population: 37400000
+Point at (34.0522, -118.2437), name: Los Angeles, state: California
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#The += operator is a shorthand assignment operator. It means &quot;add to itself&quot;.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial value of x: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">+=</span> <span class="n">y</span>  <span class="c1"># This is equivalent to x = x + y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value of x after x += y: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial value of x: 5
+Value of x after x += y: 8
 </pre></div>
 </div>
 </div>
@@ -758,6 +791,11 @@ Distance in miles: 5477.74 miles
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokyo (35.6895, 139.6917)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="adding-methods-to-a-class">
@@ -782,6 +820,11 @@ Distance in miles: 5477.74 miles
 <span class="nb">print</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;Distance from </span><span class="si">{</span><span class="n">point1</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">point2</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">point1</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">point2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> km&quot;</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance from Tokyo to Los Angeles: 8815.47 km
 </pre></div>
 </div>
 </div>
@@ -823,6 +866,11 @@ Distance in miles: 5477.74 miles
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total distance: 8815.47 km
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="function-and-class-design-guidelines">
@@ -841,13 +889,8 @@ Distance in miles: 5477.74 miles
 <span class="c1">#and returns the distance between them using the Haversine formula37.</span>
 <span class="c1">#Use this function to calculate the distance between multiple pairs of coordinates.</span>
 <span class="c1">#Test your function with coordinates for cities you know and verify the results make sense.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the distance between two geographic coordinates using the Haversine formula.&quot;&quot;&quot;</span>
     <span class="c1"># The haversine function is already defined in previous cells</span>
     <span class="k">return</span> <span class="n">haversine</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">)</span>
@@ -888,7 +931,12 @@ Distance between Paris and New York: 5837.24 km
 <h3><span class="section-number">12.8.2. </span>Exercise 2: Batch Distance Calculation<a class="headerlink" href="#exercise-2-batch-distance-calculation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_distance_calculation</span><span class="p">(</span><span class="n">coord_list</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kilometers&quot;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a function batch_distance_calculation that accepts a list of coordinate pairs and returns a</span>
+<span class="c1"># list of distances between consecutive pairs.</span>
+<span class="c1"># • Test the function with a list of coordinates representing several cities.</span>
+<span class="c1"># • Add an optional parameter to specify the units (kilometers or miles) with a default value.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">batch_distance_calculation</span><span class="p">(</span><span class="n">coord_list</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kilometers&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates distances between consecutive coordinate pairs in a list, with optional units.&quot;&quot;&quot;</span>
     <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="c1"># Determine the radius based on units</span>
@@ -946,7 +994,7 @@ Distances between consecutive cities (miles):
 <h3><span class="section-number">12.8.3. </span>Exercise 3: Creating and Using a Point Class<a class="headerlink" href="#exercise-3-creating-and-using-a-point-class" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Default title text</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># Define a Point class to represent a geographic point with attributes latitude , longitude , and</span>
 <span class="c1"># name .</span>
 <span class="c1"># • Add a method distance_to that calculates the distance from one point to another.</span>

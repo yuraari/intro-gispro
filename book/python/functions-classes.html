@@ -886,7 +886,7 @@ Value of x after x += y: 8
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define a function calculate_distance that takes two geographic coordinates (latitude and longitude)</span>
-<span class="c1">#and returns the distance between them using the Haversine formula37.</span>
+<span class="c1">#and returns the distance between them using the Haversine formula.</span>
 <span class="c1">#Use this function to calculate the distance between multiple pairs of coordinates.</span>
 <span class="c1">#Test your function with coordinates for cities you know and verify the results make sense.</span>
 
@@ -933,8 +933,8 @@ Distance between Paris and New York: 5837.24 km
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a function batch_distance_calculation that accepts a list of coordinate pairs and returns a</span>
 <span class="c1"># list of distances between consecutive pairs.</span>
-<span class="c1"># • Test the function with a list of coordinates representing several cities.</span>
-<span class="c1"># • Add an optional parameter to specify the units (kilometers or miles) with a default value.</span>
+<span class="c1"># Test the function with a list of coordinates representing several cities.</span>
+<span class="c1"># Add an optional parameter to specify the units (kilometers or miles) with a default value.</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">batch_distance_calculation</span><span class="p">(</span><span class="n">coord_list</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;kilometers&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates distances between consecutive coordinate pairs in a list, with optional units.&quot;&quot;&quot;</span>
@@ -953,7 +953,6 @@ Distance between Paris and New York: 5837.24 km
         <span class="n">distance</span> <span class="o">=</span> <span class="n">haversine</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
         <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">distances</span>
-
 
 <span class="c1"># Test the function with a list of coordinates representing several cities.</span>
 <span class="n">cities_coords</span> <span class="o">=</span> <span class="p">[</span>
@@ -994,14 +993,8 @@ Distances between consecutive cities (miles):
 <h3><span class="section-number">12.8.3. </span>Exercise 3: Creating and Using a Point Class<a class="headerlink" href="#exercise-3-creating-and-using-a-point-class" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># Define a Point class to represent a geographic point with attributes latitude , longitude , and</span>
-<span class="c1"># name .</span>
-<span class="c1"># • Add a method distance_to that calculates the distance from one point to another.</span>
-<span class="c1"># • Include a __str__ method that provides a readable representation of the point.</span>
-<span class="c1"># • Instantiate several Point objects and calculate the distance between them.</span>
-<span class="c1"># • Create a method is_in_northern_hemisphere that returns True if the point is north of the equator.Define a Point class to represent a geographic point with attributes latitude , longitude , and</span>
-<span class="c1"># name .</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a Point class to represent a geographic point with attributes latitude, longitude, and</span>
+<span class="c1"># name.</span>
 <span class="c1"># • Add a method distance_to that calculates the distance from one point to another.</span>
 <span class="c1"># • Include a __str__ method that provides a readable representation of the point.</span>
 <span class="c1"># • Instantiate several Point objects and calculate the distance between them.</span>

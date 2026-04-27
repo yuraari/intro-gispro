@@ -555,6 +555,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1D Array (elevation readings): [245 312 156 423 678]
+Data type: int64
+Array shape: (5,)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -568,6 +575,16 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2D Array (city coordinates):
+[[ 3.568950e+01  1.396917e+02]
+ [ 4.071280e+01 -7.400600e+01]
+ [ 5.150740e+01 -1.278000e-01]]
+Array shape: (3, 2)
+Number of cities: 3
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -575,6 +592,15 @@
 <span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance matrix (initialized with zeros):</span><span class="se">\n</span><span class="si">{</span><span class="n">distance_matrix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This could store distances between </span><span class="si">{</span><span class="n">distance_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> cities&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distance matrix (initialized with zeros):
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+This could store distances between 3 cities
 </pre></div>
 </div>
 </div>
@@ -588,6 +614,14 @@
 <span class="c1"># Or create an array for marking valid data points</span>
 <span class="n">valid_data_flags</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>  <span class="c1"># All True initially</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data validity flags: </span><span class="si">{</span><span class="n">valid_data_flags</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array of weights (0.5):
+[[0.5 0.5 0.5 0.5]
+ [0.5 0.5 0.5 0.5]]
+Data validity flags: [ True  True  True  True  True]
 </pre></div>
 </div>
 </div>
@@ -608,6 +642,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Years array: [2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020]
+Latitude grid: [-90 -60 -30   0  30  60  90]
+Longitude grid: [-180. -120.  -60.    0.   60.  120.  180.]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="basic-array-operations">
@@ -620,6 +661,12 @@
 <span class="n">sea_level_adjustment</span> <span class="o">=</span> <span class="n">elevation_readings</span> <span class="o">+</span> <span class="mi">10</span>  <span class="c1"># Add 10 meters to all readings</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original elevations: </span><span class="si">{</span><span class="n">elevation_readings</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adjusted elevations: </span><span class="si">{</span><span class="n">sea_level_adjustment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original elevations: [245 312 156 423 678]
+Adjusted elevations: [255 322 166 433 688]
 </pre></div>
 </div>
 </div>
@@ -641,6 +688,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elevations in meters: [245 312 156 423 678]
+Elevations in feet: [ 803.8 1023.6  511.8 1387.8 2224.4]
+Temperatures in Celsius: [15.5 22.3  8.9 31.2]
+Temperatures in Fahrenheit: [59.9 72.1 48.  88.2]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,6 +714,22 @@
 <span class="c1"># You can also perform operations between arrays of the same shape</span>
 <span class="n">coord_differences</span> <span class="o">=</span> <span class="n">coordinates</span> <span class="o">-</span> <span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Distance from first city (Tokyo)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coordinate differences from Tokyo:</span><span class="se">\n</span><span class="si">{</span><span class="n">coord_differences</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original coordinates:
+[[ 3.568950e+01  1.396917e+02]
+ [ 4.071280e+01 -7.400600e+01]
+ [ 5.150740e+01 -1.278000e-01]]
+Weighted coordinates:
+[[ 3.5689500e+01  1.1175336e+02]
+ [ 4.0712800e+01 -5.9204800e+01]
+ [ 5.1507400e+01 -1.0224000e-01]]
+Coordinate differences from Tokyo:
+[[   0.        0.    ]
+ [   5.0233 -213.6977]
+ [  15.8179 -139.8195]]
 </pre></div>
 </div>
 </div>
@@ -684,6 +755,17 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flat coordinate data: [ 3.568950e+01  1.396917e+02  4.071280e+01 -7.400600e+01  5.150740e+01
+ -1.278000e-01]
+Reshaped into coordinate pairs:
+[[ 3.568950e+01  1.396917e+02]
+ [ 4.071280e+01 -7.400600e+01]
+ [ 5.150740e+01 -1.278000e-01]]
+Auto-calculated rows: (3, 2)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,6 +779,15 @@
 <span class="c1"># You can also flatten a multidimensional array back to 1D</span>
 <span class="n">flattened_again</span> <span class="o">=</span> <span class="n">coordinate_pairs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flattened back to 1D: </span><span class="si">{</span><span class="n">flattened_again</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original flat array shape: (6,)
+Reshaped array shape: (3, 2)
+Total elements (should be the same): 6 vs 6
+Flattened back to 1D: [ 3.568950e+01  1.396917e+02  4.071280e+01 -7.400600e+01  5.150740e+01
+ -1.278000e-01]
 </pre></div>
 </div>
 </div>
@@ -723,6 +814,15 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Squared distances: [ 100  400  900 1600 2500]
+Actual distances: [10. 20. 30. 40. 50.]
+Angles (degrees): [ 0 30 45 60 90]
+Sine values: [0.    0.5   0.707 0.866 1.   ]
+Cosine values: [1.    0.866 0.707 0.5   0.   ]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,6 +838,14 @@
 <span class="n">exponential_growth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">growth_rates</span><span class="p">)</span>  <span class="c1"># e^x</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Growth rates: </span><span class="si">{</span><span class="n">growth_rates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exponential factors: </span><span class="si">{</span><span class="n">exponential_growth</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Population data: [  100000   500000  1000000  5000000 10000000]
+Log10 of population: [5.  5.7 6.  6.7 7. ]
+Growth rates: [0.01 0.02 0.03 0.05]
+Exponential factors: [1.01  1.02  1.03  1.051]
 </pre></div>
 </div>
 </div>

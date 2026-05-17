@@ -3346,14 +3346,14 @@ The city furthest from the mean coordinates is Tokyo with a distance of 9421.04 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">4. Data Aggregation:&quot;</span><span class="p">)</span>
 <span class="c1"># Group cities by country and calculate total population per country</span>
 <span class="n">population_by_country</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Total population by country (top 5):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total population by country (top 5):&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">population_by_country</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
 <span class="c1"># Find the country with the most cities in the dataset</span>
 <span class="n">country_city_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="n">country_with_most_cities</span> <span class="o">=</span> <span class="n">country_city_counts</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
 <span class="n">max_cities</span> <span class="o">=</span> <span class="n">country_city_counts</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Country with the most cities: </span><span class="si">{</span><span class="n">country_with_most_cities</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">max_cities</span><span class="si">}</span><span class="s2"> cities.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Country with the most cities: </span><span class="si">{</span><span class="n">country_with_most_cities</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">max_cities</span><span class="si">}</span><span class="s2"> cities.&quot;</span><span class="p">)</span>
 
 <span class="c1"># Calculate average population by continent (if continent data is available)</span>
 <span class="c1"># The &#39;world_cities.csv&#39; dataset does not contain a &#39;continent&#39; column.</span>

@@ -575,6 +575,370 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in /usr/local/lib/python3.12/dist-packages (1.1.3)
+Collecting pygis
+  Downloading pygis-0.10.2-py2.py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: numpy&gt;=1.24 in /usr/local/lib/python3.12/dist-packages (from geopandas) (2.0.2)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in /usr/local/lib/python3.12/dist-packages (from geopandas) (0.12.1)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from geopandas) (26.1)
+Requirement already satisfied: pandas&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from geopandas) (2.2.2)
+Requirement already satisfied: pyproj&gt;=3.5.0 in /usr/local/lib/python3.12/dist-packages (from geopandas) (3.7.2)
+Requirement already satisfied: shapely&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from geopandas) (2.1.2)
+Collecting anymap (from pygis)
+  Downloading anymap-0.12.0-py2.py3-none-any.whl.metadata (6.8 kB)
+Collecting bash_kernel (from pygis)
+  Downloading bash_kernel-0.10.0-py2.py3-none-any.whl.metadata (5.2 kB)
+Requirement already satisfied: duckdb in /usr/local/lib/python3.12/dist-packages (from pygis) (1.3.2)
+Collecting duckdb-engine (from pygis)
+  Downloading duckdb_engine-0.17.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting ffmpeg-python (from pygis)
+  Downloading ffmpeg_python-0.2.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting geeadd (from pygis)
+  Downloading geeadd-2.1.0-py3-none-any.whl.metadata (8.3 kB)
+Requirement already satisfied: geemap&gt;=0.36.6 in /usr/local/lib/python3.12/dist-packages (from pygis) (0.37.2)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.12/dist-packages (from pygis) (6.17.1)
+Collecting jupysql (from pygis)
+  Downloading jupysql-0.11.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting jupyter-server-proxy (from pygis)
+  Downloading jupyter_server_proxy-4.5.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting leafmap&gt;=0.57.9 (from pygis)
+  Downloading leafmap-0.62.0-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: mapclassify in /usr/local/lib/python3.12/dist-packages (from pygis) (2.10.0)
+Collecting maplibre (from pygis)
+  Downloading maplibre-0.3.6-py3-none-any.whl.metadata (4.2 kB)
+Collecting mapwidget (from pygis)
+  Downloading mapwidget-0.2.0-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting planetary-computer (from pygis)
+  Downloading planetary_computer-1.0.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pmtiles (from pygis)
+  Downloading pmtiles-3.7.0-py3-none-any.whl.metadata (903 bytes)
+Requirement already satisfied: pooch in /usr/local/lib/python3.12/dist-packages (from pygis) (1.9.0)
+Collecting solara (from pygis)
+  Downloading solara-1.57.4-py3-none-any.whl.metadata (10 kB)
+Collecting voila (from pygis)
+  Downloading voila-0.5.12-py3-none-any.whl.metadata (9.4 kB)
+Collecting voila-topbar (from pygis)
+  Downloading voila_topbar-0.1.1-py3-none-any.whl.metadata (5.8 kB)
+Collecting whiteboxgui (from pygis)
+  Downloading whiteboxgui-2.3.0-py2.py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: xarray in /usr/local/lib/python3.12/dist-packages (from pygis) (2025.12.0)
+Requirement already satisfied: anywidget in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.9.21)
+Requirement already satisfied: bqplot in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.12.45)
+Requirement already satisfied: earthengine-api&gt;=1.6.12 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (1.7.22)
+Requirement already satisfied: eerepr&gt;=0.1.0 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.1.2)
+Requirement already satisfied: folium&gt;=0.17.0 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.20.0)
+Requirement already satisfied: geocoder in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (1.38.1)
+Requirement already satisfied: ipyevents in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (2.0.4)
+Requirement already satisfied: ipyfilechooser&gt;=0.6.0 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.6.0)
+Requirement already satisfied: ipyleaflet&gt;=0.19.2 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.20.0)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (3.10.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (5.24.1)
+Requirement already satisfied: pyperclip in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (1.11.0)
+Requirement already satisfied: pyshp&gt;=2.3.1 in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (3.0.3)
+Requirement already satisfied: python-box in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (7.4.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (2.32.4)
+Requirement already satisfied: scooby in /usr/local/lib/python3.12/dist-packages (from geemap&gt;=0.36.6-&gt;pygis) (0.11.2)
+Collecting duckdb (from pygis)
+  Downloading duckdb-1.5.2-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: gdown in /usr/local/lib/python3.12/dist-packages (from leafmap&gt;=0.57.9-&gt;pygis) (5.2.2)
+Collecting geojson (from leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading geojson-3.2.0-py3-none-any.whl.metadata (16 kB)
+Collecting ipyvue&gt;=1.12.0 (from leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading ipyvue-1.12.0-py2.py3-none-any.whl.metadata (1.2 kB)
+Collecting ipyvuetify (from leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading ipyvuetify-1.11.3-py2.py3-none-any.whl.metadata (7.5 kB)
+Requirement already satisfied: ipywidgets in /usr/local/lib/python3.12/dist-packages (from leafmap&gt;=0.57.9-&gt;pygis) (7.7.1)
+Collecting pystac-client (from leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading pystac_client-0.9.0-py3-none-any.whl.metadata (3.1 kB)
+Requirement already satisfied: xyzservices in /usr/local/lib/python3.12/dist-packages (from leafmap&gt;=0.57.9-&gt;pygis) (2026.3.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;geopandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;geopandas) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas&gt;=2.0.0-&gt;geopandas) (2026.1)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from pyogrio&gt;=0.7.2-&gt;geopandas) (2026.4.22)
+Collecting ipywidgets (from leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading ipywidgets-8.1.8-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: psutil in /usr/local/lib/python3.12/dist-packages (from anymap-&gt;pygis) (5.9.5)
+Requirement already satisfied: traitlets&gt;=5.0.0 in /usr/local/lib/python3.12/dist-packages (from anymap-&gt;pygis) (5.7.1)
+Requirement already satisfied: pexpect&gt;=4.0 in /usr/local/lib/python3.12/dist-packages (from bash_kernel-&gt;pygis) (4.9.0)
+Collecting filetype (from bash_kernel-&gt;pygis)
+  Downloading filetype-1.2.0-py2.py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: sqlalchemy&gt;=1.3.22 in /usr/local/lib/python3.12/dist-packages (from duckdb-engine-&gt;pygis) (2.0.49)
+Requirement already satisfied: future in /usr/local/lib/python3.12/dist-packages (from ffmpeg-python-&gt;pygis) (1.0.0)
+Requirement already satisfied: click&gt;=8.0.0 in /usr/local/lib/python3.12/dist-packages (from geeadd-&gt;pygis) (8.3.3)
+Collecting colorama&gt;=0.4.6 (from geeadd-&gt;pygis)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: google-auth&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from geeadd-&gt;pygis) (2.47.0)
+Collecting jsbeautifier&gt;=1.15.1 (from geeadd-&gt;pygis)
+  Downloading jsbeautifier-1.15.4-py3-none-any.whl.metadata (374 bytes)
+Requirement already satisfied: rich&gt;=13.0.0 in /usr/local/lib/python3.12/dist-packages (from geeadd-&gt;pygis) (13.9.4)
+Requirement already satisfied: tqdm&gt;=4.66.5 in /usr/local/lib/python3.12/dist-packages (from geeadd-&gt;pygis) (4.67.3)
+Requirement already satisfied: urllib3&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from geeadd-&gt;pygis) (2.5.0)
+Requirement already satisfied: debugpy&gt;=1.0 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (1.8.15)
+Requirement already satisfied: ipython&gt;=7.23.1 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (7.34.0)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (7.4.9)
+Requirement already satisfied: matplotlib-inline&gt;=0.1 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (0.2.1)
+Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (1.6.0)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (26.2.1)
+Requirement already satisfied: tornado&gt;=6.1 in /usr/local/lib/python3.12/dist-packages (from ipykernel-&gt;pygis) (6.5.1)
+Requirement already satisfied: prettytable&gt;=3.12.0 in /usr/local/lib/python3.12/dist-packages (from jupysql-&gt;pygis) (3.17.0)
+Requirement already satisfied: sqlparse in /usr/local/lib/python3.12/dist-packages (from jupysql-&gt;pygis) (0.5.5)
+Requirement already satisfied: ipython-genutils&gt;=0.1.0 in /usr/local/lib/python3.12/dist-packages (from jupysql-&gt;pygis) (0.2.0)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from jupysql-&gt;pygis) (3.1.6)
+Requirement already satisfied: sqlglot&gt;=11.3.7 in /usr/local/lib/python3.12/dist-packages (from jupysql-&gt;pygis) (25.20.2)
+Collecting jupysql-plugin&gt;=0.4.2 (from jupysql-&gt;pygis)
+  Downloading jupysql_plugin-0.4.5-py3-none-any.whl.metadata (7.8 kB)
+Collecting ploomber-core&gt;=0.2.7 (from jupysql-&gt;pygis)
+  Downloading ploomber_core-0.2.27-py3-none-any.whl.metadata (532 bytes)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.12/dist-packages (from jupyter-server-proxy-&gt;pygis) (3.13.5)
+Requirement already satisfied: jupyter-server&gt;=1.24.0 in /usr/local/lib/python3.12/dist-packages (from jupyter-server-proxy-&gt;pygis) (2.14.0)
+Collecting simpervisor&gt;=1.0.0 (from jupyter-server-proxy-&gt;pygis)
+  Downloading simpervisor-1.0.0-py3-none-any.whl.metadata (4.3 kB)
+Requirement already satisfied: networkx&gt;=3.2 in /usr/local/lib/python3.12/dist-packages (from mapclassify-&gt;pygis) (3.6.1)
+Requirement already satisfied: scikit-learn&gt;=1.4 in /usr/local/lib/python3.12/dist-packages (from mapclassify-&gt;pygis) (1.6.1)
+Requirement already satisfied: scipy&gt;=1.12 in /usr/local/lib/python3.12/dist-packages (from mapclassify-&gt;pygis) (1.16.3)
+Requirement already satisfied: branca in /usr/local/lib/python3.12/dist-packages (from maplibre-&gt;pygis) (0.8.2)
+Collecting eval-type-backport (from maplibre-&gt;pygis)
+  Downloading eval_type_backport-0.3.1-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: pydantic&gt;=2.5.3 in /usr/local/lib/python3.12/dist-packages (from maplibre-&gt;pygis) (2.12.3)
+Collecting pystac&gt;=1.0.0 (from planetary-computer-&gt;pygis)
+  Downloading pystac-1.14.3-py3-none-any.whl.metadata (4.7 kB)
+Requirement already satisfied: python-dotenv in /usr/local/lib/python3.12/dist-packages (from planetary-computer-&gt;pygis) (1.2.2)
+Requirement already satisfied: platformdirs&gt;=2.5.0 in /usr/local/lib/python3.12/dist-packages (from pooch-&gt;pygis) (4.9.6)
+Collecting solara-server==1.57.4 (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis)
+  Downloading solara_server-1.57.4-py3-none-any.whl.metadata (2.9 kB)
+Collecting solara-ui==1.57.4 (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis)
+  Downloading solara_ui-1.57.4-py3-none-any.whl.metadata (7.3 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from solara-server==1.57.4-&gt;solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (3.29.0)
+Requirement already satisfied: nbformat in /usr/local/lib/python3.12/dist-packages (from solara-server==1.57.4-&gt;solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (5.10.4)
+Collecting rich-click (from solara-server==1.57.4-&gt;solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis)
+  Downloading rich_click-1.9.7-py3-none-any.whl.metadata (8.7 kB)
+Requirement already satisfied: watchdog in /usr/local/lib/python3.12/dist-packages (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (6.0.0)
+Requirement already satisfied: watchfiles in /usr/local/lib/python3.12/dist-packages (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (1.1.1)
+Requirement already satisfied: starlette in /usr/local/lib/python3.12/dist-packages (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (0.52.1)
+Requirement already satisfied: uvicorn in /usr/local/lib/python3.12/dist-packages (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (0.46.0)
+Requirement already satisfied: websockets in /usr/local/lib/python3.12/dist-packages (from solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (15.0.1)
+Requirement already satisfied: humanize in /usr/local/lib/python3.12/dist-packages (from solara-ui==1.57.4-&gt;solara-ui[all]==1.57.4-&gt;solara-&gt;pygis) (4.15.0)
+Collecting reacton&gt;=1.9 (from solara-ui==1.57.4-&gt;solara-ui[all]==1.57.4-&gt;solara-&gt;pygis)
+  Downloading reacton-1.9.1-py2.py3-none-any.whl.metadata (3.1 kB)
+Requirement already satisfied: cachetools in /usr/local/lib/python3.12/dist-packages (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis) (6.2.6)
+Requirement already satisfied: markdown in /usr/local/lib/python3.12/dist-packages (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis) (3.10.2)
+Requirement already satisfied: pillow in /usr/local/lib/python3.12/dist-packages (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis) (11.3.0)
+Requirement already satisfied: pygments in /usr/local/lib/python3.12/dist-packages (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis) (2.20.0)
+Collecting pymdown-extensions (from solara-ui[all]==1.57.4-&gt;solara-&gt;pygis)
+  Downloading pymdown_extensions-10.21.3-py3-none-any.whl.metadata (3.1 kB)
+Requirement already satisfied: jupyter-core&gt;=4.11.0 in /usr/local/lib/python3.12/dist-packages (from voila-&gt;pygis) (5.9.1)
+Collecting jupyterlab-server&lt;3,&gt;=2.3.0 (from voila-&gt;pygis)
+  Downloading jupyterlab_server-2.28.0-py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: nbclient&gt;=0.4.0 in /usr/local/lib/python3.12/dist-packages (from voila-&gt;pygis) (0.10.4)
+Requirement already satisfied: nbconvert&lt;8,&gt;=6.4.5 in /usr/local/lib/python3.12/dist-packages (from voila-&gt;pygis) (7.17.1)
+Collecting ipytree (from whiteboxgui-&gt;pygis)
+  Downloading ipytree-0.2.2-py2.py3-none-any.whl.metadata (849 bytes)
+Collecting whitebox (from whiteboxgui-&gt;pygis)
+  Downloading whitebox-2.3.6-py2.py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: psygnal&gt;=0.8.1 in /usr/local/lib/python3.12/dist-packages (from anywidget-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.15.1)
+Requirement already satisfied: typing-extensions&gt;=4.2.0 in /usr/local/lib/python3.12/dist-packages (from anywidget-&gt;geemap&gt;=0.36.6-&gt;pygis) (4.15.0)
+Requirement already satisfied: google-cloud-storage in /usr/local/lib/python3.12/dist-packages (from earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (3.10.1)
+Requirement already satisfied: google-api-python-client&gt;=1.12.1 in /usr/local/lib/python3.12/dist-packages (from earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (2.194.0)
+Requirement already satisfied: google-auth-httplib2&gt;=0.0.3 in /usr/local/lib/python3.12/dist-packages (from earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.3.1)
+Requirement already satisfied: httplib2&lt;1dev,&gt;=0.9.2 in /usr/local/lib/python3.12/dist-packages (from earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.31.2)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /usr/local/lib/python3.12/dist-packages (from google-auth&gt;=2.0.0-&gt;geeadd-&gt;pygis) (0.4.2)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /usr/local/lib/python3.12/dist-packages (from google-auth&gt;=2.0.0-&gt;geeadd-&gt;pygis) (4.9.1)
+Requirement already satisfied: jupyter-leaflet&lt;0.21,&gt;=0.20 in /usr/local/lib/python3.12/dist-packages (from ipyleaflet&gt;=0.19.2-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.20.0)
+Requirement already satisfied: traittypes&lt;3,&gt;=0.2.1 in /usr/local/lib/python3.12/dist-packages (from ipyleaflet&gt;=0.19.2-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.2.3)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.12/dist-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (75.2.0)
+Collecting jedi&gt;=0.16 (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis)
+  Downloading jedi-0.20.0-py2.py3-none-any.whl.metadata (23 kB)
+Requirement already satisfied: decorator in /usr/local/lib/python3.12/dist-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (4.4.2)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.12/dist-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (0.7.5)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.12/dist-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (3.0.52)
+Requirement already satisfied: backcall in /usr/local/lib/python3.12/dist-packages (from ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (0.2.0)
+Collecting comm&gt;=0.1.3 (from ipywidgets-&gt;leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets-&gt;leafmap&gt;=0.57.9-&gt;pygis)
+  Downloading widgetsnbextension-4.0.15-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: jupyterlab_widgets~=3.0.15 in /usr/local/lib/python3.12/dist-packages (from ipywidgets-&gt;leafmap&gt;=0.57.9-&gt;pygis) (3.0.16)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2-&gt;jupysql-&gt;pygis) (3.0.3)
+Requirement already satisfied: six&gt;=1.13.0 in /usr/local/lib/python3.12/dist-packages (from jsbeautifier&gt;=1.15.1-&gt;geeadd-&gt;pygis) (1.17.0)
+Collecting editorconfig&gt;=0.12.2 (from jsbeautifier&gt;=1.15.1-&gt;geeadd-&gt;pygis)
+  Downloading editorconfig-0.17.1-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: entrypoints in /usr/local/lib/python3.12/dist-packages (from jupyter-client&gt;=6.1.12-&gt;ipykernel-&gt;pygis) (0.4)
+Requirement already satisfied: anyio&gt;=3.1.0 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (4.13.0)
+Requirement already satisfied: argon2-cffi&gt;=21.1 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (25.1.0)
+Requirement already satisfied: jupyter-events&gt;=0.9.0 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.12.1)
+Requirement already satisfied: jupyter-server-terminals&gt;=0.4.4 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.5.4)
+Requirement already satisfied: overrides&gt;=5.0 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (7.7.0)
+Requirement already satisfied: prometheus-client&gt;=0.9 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.25.0)
+Requirement already satisfied: send2trash&gt;=1.8.2 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (2.1.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.18.1)
+Requirement already satisfied: websocket-client&gt;=1.7 in /usr/local/lib/python3.12/dist-packages (from jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.9.0)
+Requirement already satisfied: babel&gt;=2.10 in /usr/local/lib/python3.12/dist-packages (from jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis) (2.18.0)
+Collecting json5&gt;=0.9.0 (from jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis)
+  Downloading json5-0.14.0-py3-none-any.whl.metadata (36 kB)
+Requirement already satisfied: jsonschema&gt;=4.18.0 in /usr/local/lib/python3.12/dist-packages (from jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis) (4.26.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.12/dist-packages (from nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (4.13.5)
+Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.12/dist-packages (from bleach[css]!=5.0.0-&gt;nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (6.3.0)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.12/dist-packages (from nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (0.7.1)
+Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.12/dist-packages (from nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (0.3.0)
+Requirement already satisfied: mistune&lt;4,&gt;=2.0.3 in /usr/local/lib/python3.12/dist-packages (from nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (3.2.0)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.12/dist-packages (from nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (1.5.1)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.12/dist-packages (from pexpect&gt;=4.0-&gt;bash_kernel-&gt;pygis) (0.7.0)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.12/dist-packages (from ploomber-core&gt;=0.2.7-&gt;jupysql-&gt;pygis) (6.0.3)
+Collecting posthog&gt;=3.0 (from ploomber-core&gt;=0.2.7-&gt;jupysql-&gt;pygis)
+  Downloading posthog-7.14.2-py3-none-any.whl.metadata (4.6 kB)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.12/dist-packages (from prettytable&gt;=3.12.0-&gt;jupysql-&gt;pygis) (0.6.0)
+Requirement already satisfied: annotated-types&gt;=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic&gt;=2.5.3-&gt;maplibre-&gt;pygis) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.4 in /usr/local/lib/python3.12/dist-packages (from pydantic&gt;=2.5.3-&gt;maplibre-&gt;pygis) (2.41.4)
+Requirement already satisfied: typing-inspection&gt;=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic&gt;=2.5.3-&gt;maplibre-&gt;pygis) (0.4.2)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.12/dist-packages (from requests-&gt;geemap&gt;=0.36.6-&gt;pygis) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.12/dist-packages (from requests-&gt;geemap&gt;=0.36.6-&gt;pygis) (3.13)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich&gt;=13.0.0-&gt;geeadd-&gt;pygis) (4.0.0)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn&gt;=1.4-&gt;mapclassify-&gt;pygis) (1.5.3)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn&gt;=1.4-&gt;mapclassify-&gt;pygis) (3.6.0)
+Requirement already satisfied: greenlet&gt;=1 in /usr/local/lib/python3.12/dist-packages (from sqlalchemy&gt;=1.3.22-&gt;duckdb-engine-&gt;pygis) (3.4.0)
+Requirement already satisfied: aiohappyeyeballs&gt;=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (2.6.1)
+Requirement already satisfied: aiosignal&gt;=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (1.4.0)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (26.1.0)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (1.8.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (6.7.1)
+Requirement already satisfied: propcache&gt;=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (0.4.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp-&gt;jupyter-server-proxy-&gt;pygis) (1.23.0)
+Requirement already satisfied: ratelim in /usr/local/lib/python3.12/dist-packages (from geocoder-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.1.6)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib-&gt;geemap&gt;=0.36.6-&gt;pygis) (1.3.3)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib-&gt;geemap&gt;=0.36.6-&gt;pygis) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib-&gt;geemap&gt;=0.36.6-&gt;pygis) (4.62.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib-&gt;geemap&gt;=0.36.6-&gt;pygis) (1.5.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib-&gt;geemap&gt;=0.36.6-&gt;pygis) (3.3.2)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.12/dist-packages (from plotly-&gt;geemap&gt;=0.36.6-&gt;pygis) (9.1.4)
+Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.12/dist-packages (from argon2-cffi&gt;=21.1-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (25.1.0)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.12/dist-packages (from bleach!=5.0.0-&gt;bleach[css]!=5.0.0-&gt;nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (0.5.1)
+Requirement already satisfied: tinycss2&lt;1.5,&gt;=1.1.0 in /usr/local/lib/python3.12/dist-packages (from bleach[css]!=5.0.0-&gt;nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (1.4.0)
+Requirement already satisfied: google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,&lt;3.0.0,&gt;=1.31.5 in /usr/local/lib/python3.12/dist-packages (from google-api-python-client&gt;=1.12.1-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (2.30.3)
+Requirement already satisfied: uritemplate&lt;5,&gt;=3.0.1 in /usr/local/lib/python3.12/dist-packages (from google-api-python-client&gt;=1.12.1-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (4.2.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.6 in /usr/local/lib/python3.12/dist-packages (from jedi&gt;=0.16-&gt;ipython&gt;=7.23.1-&gt;ipykernel-&gt;pygis) (0.8.6)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /usr/local/lib/python3.12/dist-packages (from jsonschema&gt;=4.18.0-&gt;jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis) (2025.9.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /usr/local/lib/python3.12/dist-packages (from jsonschema&gt;=4.18.0-&gt;jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis) (0.37.0)
+Requirement already satisfied: rpds-py&gt;=0.25.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema&gt;=4.18.0-&gt;jupyterlab-server&lt;3,&gt;=2.3.0-&gt;voila-&gt;pygis) (0.30.0)
+Requirement already satisfied: python-json-logger&gt;=2.0.4 in /usr/local/lib/python3.12/dist-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (4.1.0)
+Requirement already satisfied: rfc3339-validator in /usr/local/lib/python3.12/dist-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.1.4)
+Requirement already satisfied: rfc3986-validator&gt;=0.1.1 in /usr/local/lib/python3.12/dist-packages (from jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (0.1.1)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=13.0.0-&gt;geeadd-&gt;pygis) (0.1.2)
+Requirement already satisfied: fastjsonschema&gt;=2.15 in /usr/local/lib/python3.12/dist-packages (from nbformat-&gt;solara-server==1.57.4-&gt;solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (2.21.2)
+Collecting backoff&gt;=1.10.0 (from posthog&gt;=3.0-&gt;ploomber-core&gt;=0.2.7-&gt;jupysql-&gt;pygis)
+  Downloading backoff-2.2.1-py3-none-any.whl.metadata (14 kB)
+Requirement already satisfied: distro&gt;=1.5.0 in /usr/local/lib/python3.12/dist-packages (from posthog&gt;=3.0-&gt;ploomber-core&gt;=0.2.7-&gt;jupysql-&gt;pygis) (1.9.0)
+Requirement already satisfied: pyasn1&lt;0.7.0,&gt;=0.6.1 in /usr/local/lib/python3.12/dist-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth&gt;=2.0.0-&gt;geeadd-&gt;pygis) (0.6.3)
+Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.12/dist-packages (from beautifulsoup4-&gt;nbconvert&lt;8,&gt;=6.4.5-&gt;voila-&gt;pygis) (2.8.3)
+Requirement already satisfied: google-cloud-core&lt;3.0.0,&gt;=2.4.2 in /usr/local/lib/python3.12/dist-packages (from google-cloud-storage-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (2.5.1)
+Requirement already satisfied: google-resumable-media&lt;3.0.0,&gt;=2.7.2 in /usr/local/lib/python3.12/dist-packages (from google-cloud-storage-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (2.8.2)
+Requirement already satisfied: google-crc32c&lt;2.0.0,&gt;=1.1.3 in /usr/local/lib/python3.12/dist-packages (from google-cloud-storage-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (1.8.0)
+Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/python3.12/dist-packages (from requests[socks]-&gt;gdown-&gt;leafmap&gt;=0.57.9-&gt;pygis) (1.7.1)
+Requirement already satisfied: h11&gt;=0.8 in /usr/local/lib/python3.12/dist-packages (from uvicorn-&gt;solara-server[dev,starlette]==1.57.4-&gt;solara-&gt;pygis) (0.16.0)
+Requirement already satisfied: googleapis-common-protos&lt;2.0.0,&gt;=1.63.2 in /usr/local/lib/python3.12/dist-packages (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,&lt;3.0.0,&gt;=1.31.5-&gt;google-api-python-client&gt;=1.12.1-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (1.74.0)
+Requirement already satisfied: protobuf&lt;8.0.0,&gt;=4.25.8 in /usr/local/lib/python3.12/dist-packages (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,&lt;3.0.0,&gt;=1.31.5-&gt;google-api-python-client&gt;=1.12.1-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (5.29.6)
+Requirement already satisfied: proto-plus&lt;2.0.0,&gt;=1.22.3 in /usr/local/lib/python3.12/dist-packages (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,&lt;3.0.0,&gt;=1.31.5-&gt;google-api-python-client&gt;=1.12.1-&gt;earthengine-api&gt;=1.6.12-&gt;geemap&gt;=0.36.6-&gt;pygis) (1.27.2)
+Requirement already satisfied: fqdn in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.5.1)
+Requirement already satisfied: isoduration in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (20.11.0)
+Requirement already satisfied: jsonpointer&gt;1.13 in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (3.1.1)
+Requirement already satisfied: rfc3987-syntax&gt;=1.1.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.1.0)
+Requirement already satisfied: uri-template in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.3.0)
+Requirement already satisfied: webcolors&gt;=24.6.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (25.10.0)
+Requirement already satisfied: cffi&gt;=1.0.1 in /usr/local/lib/python3.12/dist-packages (from argon2-cffi-bindings-&gt;argon2-cffi&gt;=21.1-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (2.0.0)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.12/dist-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi&gt;=21.1-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (3.0)
+Requirement already satisfied: lark&gt;=1.2.2 in /usr/local/lib/python3.12/dist-packages (from rfc3987-syntax&gt;=1.1.0-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.3.1)
+Requirement already satisfied: arrow&gt;=0.15.0 in /usr/local/lib/python3.12/dist-packages (from isoduration-&gt;jsonschema[format-nongpl]&gt;=4.18.0-&gt;jupyter-events&gt;=0.9.0-&gt;jupyter-server&gt;=1.24.0-&gt;jupyter-server-proxy-&gt;pygis) (1.4.0)
+Downloading pygis-0.10.2-py2.py3-none-any.whl (3.4 kB)
+Downloading leafmap-0.62.0-py2.py3-none-any.whl (667 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">667.5/667.5 kB</span> <span class=" -Color -Color-Red">32.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading duckdb-1.5.2-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (21.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.4/21.4 MB</span> <span class=" -Color -Color-Red">37.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading anymap-0.12.0-py2.py3-none-any.whl (273 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">273.8/273.8 kB</span> <span class=" -Color -Color-Red">12.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading bash_kernel-0.10.0-py2.py3-none-any.whl (616 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">617.0/617.0 kB</span> <span class=" -Color -Color-Red">33.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading duckdb_engine-0.17.0-py3-none-any.whl (49 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">49.7/49.7 kB</span> <span class=" -Color -Color-Red">1.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading ffmpeg_python-0.2.0-py3-none-any.whl (25 kB)
+Downloading geeadd-2.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">67.2/67.2 kB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jupysql-0.11.1-py3-none-any.whl (95 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">95.1/95.1 kB</span> <span class=" -Color -Color-Red">6.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jupyter_server_proxy-4.5.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">45.1/45.1 kB</span> <span class=" -Color -Color-Red">2.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading maplibre-0.3.6-py3-none-any.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.4/1.4 MB</span> <span class=" -Color -Color-Red">56.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading mapwidget-0.2.0-py2.py3-none-any.whl (15 kB)
+Downloading planetary_computer-1.0.0-py3-none-any.whl (14 kB)
+Downloading pmtiles-3.7.0-py3-none-any.whl (16 kB)
+Downloading solara-1.57.4-py3-none-any.whl (5.9 kB)
+Downloading solara_server-1.57.4-py3-none-any.whl (3.9 kB)
+Downloading solara_ui-1.57.4-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">48.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading voila-0.5.12-py3-none-any.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.5/4.5 MB</span> <span class=" -Color -Color-Red">58.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading voila_topbar-0.1.1-py3-none-any.whl (733 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">733.1/733.1 kB</span> <span class=" -Color -Color-Red">33.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading whiteboxgui-2.3.0-py2.py3-none-any.whl (108 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">108.6/108.6 kB</span> <span class=" -Color -Color-Red">6.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading ipyvue-1.12.0-py2.py3-none-any.whl (2.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.7/2.7 MB</span> <span class=" -Color -Color-Red">30.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading ipyvuetify-1.11.3-py2.py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">68.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading ipywidgets-8.1.8-py3-none-any.whl (139 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">139.8/139.8 kB</span> <span class=" -Color -Color-Red">8.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jsbeautifier-1.15.4-py3-none-any.whl (94 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">94.7/94.7 kB</span> <span class=" -Color -Color-Red">5.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jupysql_plugin-0.4.5-py3-none-any.whl (192 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">192.8/192.8 kB</span> <span class=" -Color -Color-Red">13.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading jupyterlab_server-2.28.0-py3-none-any.whl (59 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">59.8/59.8 kB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading ploomber_core-0.2.27-py3-none-any.whl (22 kB)
+Downloading pystac-1.14.3-py3-none-any.whl (208 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">208.5/208.5 kB</span> <span class=" -Color -Color-Red">13.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pystac_client-0.9.0-py3-none-any.whl (41 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.8/41.8 kB</span> <span class=" -Color -Color-Red">2.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading simpervisor-1.0.0-py3-none-any.whl (8.3 kB)
+Downloading eval_type_backport-0.3.1-py3-none-any.whl (6.1 kB)
+Downloading filetype-1.2.0-py2.py3-none-any.whl (19 kB)
+Downloading geojson-3.2.0-py3-none-any.whl (15 kB)
+Downloading ipytree-0.2.2-py2.py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.3/1.3 MB</span> <span class=" -Color -Color-Red">50.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading whitebox-2.3.6-py2.py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">74.0/74.0 kB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading editorconfig-0.17.1-py3-none-any.whl (16 kB)
+Downloading jedi-0.20.0-py2.py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.9/4.9 MB</span> <span class=" -Color -Color-Red">87.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading json5-0.14.0-py3-none-any.whl (36 kB)
+Downloading posthog-7.14.2-py3-none-any.whl (240 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">240.8/240.8 kB</span> <span class=" -Color -Color-Red">15.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading reacton-1.9.1-py2.py3-none-any.whl (108 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">108.8/108.8 kB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading widgetsnbextension-4.0.15-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">60.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pymdown_extensions-10.21.3-py3-none-any.whl (269 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">269.0/269.0 kB</span> <span class=" -Color -Color-Red">16.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading rich_click-1.9.7-py3-none-any.whl (71 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">71.5/71.5 kB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading backoff-2.2.1-py3-none-any.whl (15 kB)
+Installing collected packages: pmtiles, filetype, widgetsnbextension, whitebox, voila-topbar, simpervisor, pymdown-extensions, json5, jedi, geojson, ffmpeg-python, eval-type-backport, editorconfig, duckdb, comm, colorama, backoff, pystac, posthog, jsbeautifier, duckdb-engine, rich-click, ploomber-core, maplibre, ipywidgets, reacton, jupysql-plugin, ipyvue, ipytree, bash_kernel, whiteboxgui, pystac-client, mapwidget, jupysql, ipyvuetify, solara-ui, planetary-computer, leafmap, anymap, solara-server, geeadd, jupyterlab-server, jupyter-server-proxy, voila, solara, pygis
+  Attempting uninstall: widgetsnbextension
+    Found existing installation: widgetsnbextension 3.6.10
+    Uninstalling widgetsnbextension-3.6.10:
+      Successfully uninstalled widgetsnbextension-3.6.10
+  Attempting uninstall: duckdb
+    Found existing installation: duckdb 1.3.2
+    Uninstalling duckdb-1.3.2:
+      Successfully uninstalled duckdb-1.3.2
+  Attempting uninstall: ipywidgets
+    Found existing installation: ipywidgets 7.7.1
+    Uninstalling ipywidgets-7.7.1:
+      Successfully uninstalled ipywidgets-7.7.1
+Successfully installed anymap-0.12.0 backoff-2.2.1 bash_kernel-0.10.0 colorama-0.4.6 comm-0.2.3 duckdb-1.5.2 duckdb-engine-0.17.0 editorconfig-0.17.1 eval-type-backport-0.3.1 ffmpeg-python-0.2.0 filetype-1.2.0 geeadd-2.1.0 geojson-3.2.0 ipytree-0.2.2 ipyvue-1.12.0 ipyvuetify-1.11.3 ipywidgets-8.1.8 jedi-0.20.0 jsbeautifier-1.15.4 json5-0.14.0 jupysql-0.11.1 jupysql-plugin-0.4.5 jupyter-server-proxy-4.5.0 jupyterlab-server-2.28.0 leafmap-0.62.0 maplibre-0.3.6 mapwidget-0.2.0 planetary-computer-1.0.0 ploomber-core-0.2.27 pmtiles-3.7.0 posthog-7.14.2 pygis-0.10.2 pymdown-extensions-10.21.3 pystac-1.14.3 pystac-client-0.9.0 reacton-1.9.1 rich-click-1.9.7 simpervisor-1.0.0 solara-1.57.4 solara-server-1.57.4 solara-ui-1.57.4 voila-0.5.12 voila-topbar-0.1.1 whitebox-2.3.6 whiteboxgui-2.3.0 widgetsnbextension-4.0.15
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -608,6 +972,203 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-b2a68dfa-75ec-4c52-a1a1-c0e532fa16c9" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tokyo</td>
+      <td>35.6895</td>
+      <td>139.6917</td>
+      <td>POINT (139.6917 35.6895)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>New York</td>
+      <td>40.7128</td>
+      <td>-74.0060</td>
+      <td>POINT (-74.006 40.7128)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>London</td>
+      <td>51.5074</td>
+      <td>-0.1278</td>
+      <td>POINT (-0.1278 51.5074)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Paris</td>
+      <td>48.8566</td>
+      <td>2.3522</td>
+      <td>POINT (2.3522 48.8566)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b2a68dfa-75ec-4c52-a1a1-c0e532fa16c9')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-b2a68dfa-75ec-4c52-a1a1-c0e532fa16c9 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-b2a68dfa-75ec-4c52-a1a1-c0e532fa16c9');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+  <div id="id_30143175-e601-41a7-9d12-ead8bc6a6f38">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('gdf')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_30143175-e601-41a7-9d12-ead8bc6a6f38 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('gdf');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
 </div>
 </section>
 </section>
